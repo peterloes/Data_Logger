@@ -89,3 +89,35 @@ PE14_SENSOR1_RESET
 PE15_SENSOR1_RESERVE
 
 GND
+
+Second Sensor Connector:
+
+PD6_SENSOR_I2C_SDA
+
+PC10_SENSOR2_ADDR
+
+PC11_SENSOR2_ALERT
+
+PD7_SENSOR_I2C_SCL
+
+VDD_SENSOR2
+
+PC13_SENSOR2_RESET
+
+PC14_SENSOR2_RESERVE
+
+GND
+
+Puls Counters:
+
+PD2_PULS1_COUNTER
+
+PD3_PULS2_COUNTER
+
+
+The standalone Logger features EFM32 ...the world´s most energy friendly microcontrollers
+
+ARM Cortex-M3 EFM32G230F128
+
+
+
