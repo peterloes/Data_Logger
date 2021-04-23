@@ -40,7 +40,7 @@ Pushbuttons:
 
  - MCU_RESET
 
-   Similar Software: https://github.com/peterloes/HRD
+   Similar Software (BatteryMon.c): https://github.com/peterloes/HRD
 
 2x LED's:
 
@@ -70,7 +70,7 @@ USART0/ USART1:
 
  - PC1_US1_RX
 
-   Similar Software: https://github.com/peterloes/Scales
+   Similar Software(Scales.c): https://github.com/peterloes/Scales
 
 Sensors On/Off:
 
