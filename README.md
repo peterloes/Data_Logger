@@ -21,104 +21,106 @@ Schematics:
 https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger_2019.sch.pdf
 
 Board Power:
-- Lithium Ionen Akkupack 17V@300mA
-- Coincell CR-2032        3V@225mAh 
+ - Lithium Ionen Akkupack 17V@300mA
+ - Coincell CR-2032        3V@225mAh 
 
 Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
 
-- Sensirion: Humidity and Temperature Sensor SHT3x-DIS:        2.2@200µA
+ - Sensirion: Humidity and Temperature Sensor SHT3x-DIS:        2.2@200µA
 
-- Sensirion: CO₂, Humidity and Temperature Sensor SCD30:       3.3V@ max.75mA
+ - Sensirion: CO₂, Humidity and Temperature Sensor SCD30:       3.3V@ max.75mA
 
-- Vishay: Proximity Sensor and Ambient Light Sensor VCNL 4040: 2.5V@300µA
+ - Vishay: Proximity Sensor and Ambient Light Sensor VCNL 4040: 2.5V@300µA
 
 Pushbuttons:
 
-- PA4_SIGNAL_POWER:   On/Off Device
+ - PA4_SIGNAL_POWER:   On/Off Device
 
-- PA3_KEY_START_STOP: Collect Data
+ - PA3_KEY_START_STOP: Collect Data
 
-- MCU_RESET
+ - MCU_RESET
 
-  Similar Software: https://github.com/peterloes/HRD
+   Similar Software: https://github.com/peterloes/HRD
 
 2x LED's:
 
-- PA2_POWER_LED
+ - PA2_POWER_LED
 
-- PA5_LOG_FLUSH_LED: Log data to SD Card
+ - PA5_LOG_FLUSH_LED: Log data to SD Card
 
 LEUART:
 
-  Output to Hyperterminal
+   Output to Hyperterminal
 
-- PD5_LEUART_RX
+ - PD5_LEUART_RX
 
-- PD4_LEUART_TX
+ - PD4_LEUART_TX
 
 USART0/ USART1:
 
-  Set Sensor1/Sensor2/PulsCounter1/PulsCounter2
+   Set Sensor1/Sensor2/PulsCounter1/PulsCounter2
 
-  Set Date/Time/Interval
+   Set Date/Time/Interval
 
-- PE10_USO_TX#0
+ - PE10_USO_TX#0
 
-- PE11_US0_RX#0
+ - PE11_US0_RX#0
 
-- PC0_US1_TX
+ - PC0_US1_TX
 
-- PC1_US1_RX
+ - PC1_US1_RX
 
-  Similar Software: https://github.com/peterloes/Scales
+   Similar Software: https://github.com/peterloes/Scales
 
 Sensors On/Off:
 
-- PE9_SENSOR1_MOSFET
+ - PE9_SENSOR1_MOSFET
 
-- PC9_SENSOR2_MOSFET
+ - PC9_SENSOR2_MOSFET
 
 First Sensor Connector:
 
-- PA0_SENSOR_I2C_SDA
+ - PA0_SENSOR_I2C_SDA
 
-- PE12_SENSOR1_ADDR
+ - PE12_SENSOR1_ADDR
 
-- PE13_SENSOR1_ALERT
+ - PE13_SENSOR1_ALERT
 
-- PA1_SENSOR_I2C_SCL
+ - PA1_SENSOR_I2C_SCL
 
-- VDD_SENSOR1
+ - VDD_SENSOR1
 
-- PE14_SENSOR1_RESET
+ - PE14_SENSOR1_RESET
 
-- PE15_SENSOR1_RESERVE
+ - PE15_SENSOR1_RESERVE
 
-- GND
+ - GND
 
 Second Sensor Connector:
 
-- PD6_SENSOR_I2C_SDA
+ - PD6_SENSOR_I2C_SDA
 
-- PC10_SENSOR2_ADDR
+ - PC10_SENSOR2_ADDR
 
-- PC11_SENSOR2_ALERT
+ - PC11_SENSOR2_ALERT
 
-- PD7_SENSOR_I2C_SCL
+ - PD7_SENSOR_I2C_SCL
 
-- VDD_SENSOR2
+ - VDD_SENSOR2
 
-- PC13_SENSOR2_RESET
+ - PC13_SENSOR2_RESET
 
-- PC14_SENSOR2_RESERVE
+ - PC14_SENSOR2_RESERVE
 
-- GND
+ - GND
 
 Pulse Counters:
 
-- PD2_PULS1_COUNTER
+ - PD2_PULS1_COUNTER
 
-- PD3_PULS2_COUNTER
+ - PD3_PULS2_COUNTER
+ 
+   Input Voltage = 0V...60V
 
 
 The standalone Logger features EFM32 ...the world´s most energy friendly microcontrollers
