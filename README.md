@@ -12,7 +12,7 @@ Hardware Design supported:
 - Vishay: Fully Integrated Proximity and Ambient Light Sensor with Infrared Emitter VCNL4040
 - Puls Counter     	 
 
-![My image](https://github.com/peterloes/HRD/blob/master/Getting_Started_Tutorial/2_Electronic_board.jpg)
+![My image](https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/1_Electronic_board_top.jpg)
 
 
 Board Dimensions: 80mm x 60mm
