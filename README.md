@@ -1,7 +1,7 @@
 # Platform for Animal environmental influences. Data Logger functions. 
 
 A standalone Platform to enable long-term environmental observations
-of two different kind of sensors over I2C Interface and two puls counter for e.g. Lightbarriers.
+of two different selectable sensors (I2C Interface) and two puls counter for e.g. Lightbarriers pulses.
 
 Firmware working process discontinued.
 
