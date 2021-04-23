@@ -36,7 +36,7 @@ Pushbuttons:
 
 - MCU_RESET
 
-Similar Software: https://github.com/peterloes/HRD
+  Similar Software: https://github.com/peterloes/HRD
 
 2x LED's:
 
@@ -52,9 +52,9 @@ LEUART: Output to Hyperterminal
 
 USART0/ USART1:
 
-Set Sensor1/Sensor2/PulsCounter1/PulsCounter2
+  Set Sensor1/Sensor2/PulsCounter1/PulsCounter2
 
-Set Date/Time/Intervall
+  Set Date/Time/Intervall
 
 - PE10_USO_TX#0
 
@@ -64,7 +64,7 @@ Set Date/Time/Intervall
 
 - PC1_US1_RX
 
-Similar Software: https://github.com/peterloes/Scales
+  Similar Software: https://github.com/peterloes/Scales
 
 Sensors On/Off:
 
