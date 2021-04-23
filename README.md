@@ -44,7 +44,9 @@ Pushbuttons:
 
 - PA5_LOG_FLUSH_LED: Log data to SD Card
 
-LEUART: Output to Hyperterminal
+LEUART:
+
+  Output to Hyperterminal
 
 - PD5_LEUART_RX
 
