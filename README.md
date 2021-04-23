@@ -17,7 +17,7 @@ Hardware Design supported:
 Board Dimensions: 80mm x 60mm
 
 Board Power:
-- Lithium Ionen Akkupack 17V@ max.300mA
+- Lithium Ionen Akkupack 17V@300mA
 - Coincell CR-2032        3V@225mAh 
 
 Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
