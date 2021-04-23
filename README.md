@@ -32,6 +32,8 @@ Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
 
  - Vishay: Proximity Sensor and Ambient Light Sensor VCNL 4040: 2.5V@300µA
 
+   Similar Software(BatteryMon.c): https://github.com/peterloes/HRD
+
 Pushbuttons:
 
  - PA4_SIGNAL_POWER:   On/Off Device
@@ -40,7 +42,7 @@ Pushbuttons:
 
  - MCU_RESET
 
-   Similar Software (BatteryMon.c): https://github.com/peterloes/HRD
+   Similar Software: https://github.com/peterloes/HRD
 
 2x LED's:
 
