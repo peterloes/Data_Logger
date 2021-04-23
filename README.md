@@ -18,7 +18,7 @@ Board Dimensions: 80mm x 60mm
 
 Schematics:
 
-https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger_2019.sch.pdf
+https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger.sch.pdf
 
 Board Power:
  - Lithium Ionen Akkupack 17V@300mA
