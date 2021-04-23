@@ -1,0 +1,134 @@
+Stückliste exportiert aus C:/MPIO/TECHNIK/HARDWARE/EAGLE_FILES/Logger_2019/Logger_2019_1.sch am 21.04.2021 15:29
+
+Part  Value                   Device                  Package                Description                                                    MF MPN     OC_FARNELL OC_NEWARK PACKAGE  SUPPLIER         
+BH1   KEYSTONE_CELL_CLIP 3082 3082                    3082                                                                                                                                            
+C1    100µF/25V               CPOL-EUE                PANASONIC_E            POLARIZED CAPACITOR, European symbol                                                                                     
+C2    10µF/25V                C-EUC1206               C1206                  CAPACITOR, European symbol                                                                                               
+C3    22µF/10V                C-EUC0603               C0603                  CAPACITOR, European symbol                                                                                               
+C4    100µF/25V               CPOL-EUE                PANASONIC_E            POLARIZED CAPACITOR, European symbol                                                                                     
+C5    100nF/16V               C-EUC0805               C0805                  CAPACITOR, European symbol                                                                                               
+C6    10µ/25V                 C-EUC1206               C1206                  CAPACITOR, European symbol                                                                                               
+C7    100n                    C_SMD0805               0805                                                                                                                                            
+C8    1u                      C_SMD0805               0805                                                                                                                                            
+C9    12p                     C_SMD0805               0805                                                                                                                                            
+C10   18p                     C_SMD0805               0805                                                                                                                                            
+C11   100n                    C_SMD0805               0805                                                                                                                                            
+C12   100n                    C_SMD0805               0805                                                                                                                                            
+C13   100n                    C_SMD0805               0805                                                                                                                                            
+C14   12p                     C_SMD0805               0805                                                                                                                                            
+C15   18p                     C_SMD0805               0805                                                                                                                                            
+C16   10µ                     C_SMD0805               0805                                                                                                                                            
+C17   100n                    C_SMD0805               0805                                                                                                                                            
+C18   100n                    C_SMD0805               0805                                                                                                                                            
+C19   100n                    C_SMD0805               0805                                                                                                                                            
+C20   100n                    C_SMD0805               0805                                                                                                                                            
+C21   100n                    C_SMD0805               0805                                                                                                                                            
+C22   10µ                     C_SMD0805               0805                                                                                                                                            
+C23   10n                     C-EUC0603               C0603                  CAPACITOR, European symbol                                                                                               
+C24   10n                     C-EUC0603K              C0603K                 CAPACITOR, European symbol                                                                                               
+C25   100nF                   C-EUC0603               C0603                  CAPACITOR, European symbol                                                                                               
+C26   100nF                   C-EUC0603               C0603                  CAPACITOR, European symbol                                                                                               
+C27   100nF                   C-EUC0603               C0603                  CAPACITOR, European symbol                                                                                               
+C28   100nF                   C-EUC0603               C0603                  CAPACITOR, European symbol                                                                                               
+C29   100nF                   C-EUC0603               C0603                  CAPACITOR, European symbol                                                                                               
+C30   100nF                   C-EUC0603               C0603                  CAPACITOR, European symbol                                                                                               
+D1    RSX101M-30              DIODE-SOD123            SOD123                 DIODE                                                                                                                    
+D2    BAT54C                  D2A_SOT23               SOT-23$1               Dual DIODE                                                                                                               
+D3    BAT54C                  D2A_SOT23               SOT-23$1               Dual DIODE                                                                                                               
+IC1   TPS62125                TPS62125                DSG_PWSO-N8_EXP                                                                                                                                 
+IC2   EFM32G230F128           EFM32G230F128           QFN64                  EFM32G230F128 Gecko Microcontroller in 9mm x 9mm QFN64 package                                                           
+J1    LUMBERG1502_01          LUMBERG1502_01          LUMBERG1502_01                                                                                                                                  
+L1    LPS3008/22µH            LPS3008                 LPS3008                                                                                                                                         
+L2    BLM21B102S              WE-CBF-7427920_0805     0805                   SMD EMI Suppression Ferrite Beads WE-CBF                          7427920 1635707    08P2358   IND-0805 Wuerth Elektronik
+LED1  SML-H12U8TT86           LEDCHIPLED_0805         CHIPLED_0805           LED                                                                                                                      
+LED2  SML-H12Y8TT86           LEDCHIPLED_0805         CHIPLED_0805           LED                                                                                                                      
+LSP1  (n.b.)SE13              SE13                    SE13                   SOLDER PAD E1542,  drill 1,3mm, distributor Buerklin, 07F815                                                             
+LSP2  (n.b.)SE13              SE13                    SE13                   SOLDER PAD E1542,  drill 1,3mm, distributor Buerklin, 07F815                                                             
+PASS1 ROUND_1MM1.5            ROUND_1MM1.5            ROUND2_1.5MM                                                                                                                                    
+PASS2 ROUND_1MM1.5            ROUND_1MM1.5            ROUND2_1.5MM                                                                                                                                    
+Q1    SI7121DN                TRANSISTOR-FET_SI7113DN TRANSISTOR-FET_1212-8S                                                                                                                          
+Q2    NX5032GA/32MHz/8pF      CRYSTAL2P5.0X3.2        CRYSTAL2P5.0X3.2       Quarz Crystal                                                                                                            
+Q3    CM7V, 32768Hz/12.5pF    CRYSTAL2P               CRYSTAL2P3.2X1.5       Quarz Crystal                                                                                                            
+R1    100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R2    100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R3    100k                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R4    100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R5    100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R6    100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R7    100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R8    1M47                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R9    200K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R10   30K9                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R11   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R12   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R13   2M                      R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R14   560K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R15   1                       R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R16   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R17   100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R18   1K2                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R19   (n.b.)100K/*10nF*/      R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R20   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R21   1K2                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R22   100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R23   100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R24   100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R25   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R26   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R27   10K                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R28   10K                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R29   100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R30   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R31   10K                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R32   10K                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R33   1K                      R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R34   1K                      R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R35   (n.b.)10K               R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R36   100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R37   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R38   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R39   100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R40   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R41   100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R42   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R43   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R44   100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R45   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R46   100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R47   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R48   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R49   100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R50   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R51   100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R52   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R53   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R54   100                     R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R55   100K                    R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R56   1K                      R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R57   1K                      R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R58   1K                      R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+R59   1K                      R-EU_R0805              R0805                  RESISTOR, European symbol                                                                                                
+S1    SWPB_B3S1000            DTSM-6                  DTSM-6                                                                                                                                          
+SD1   DM1AA-SF-PEJ            DM1AA-SF-PEJ            DM1AA-SF-PEJ                                                                                                                                    
+SW1   5GSH935                 5GSH935                 MULTIMEC_5GSH935                                                                                                                                
+SW2   5GSH935                 5GSH935                 MULTIMEC_5GSH935                                                                                                                                
+T1    2N7002                  NMOSSOT23               SOT-23                 MOS FET                                                                   unknown    unknown                             
+T2    FDN358P                 ZETEX_PMOSSOT23         ZETEX_SOT-23           MOS FET                                                                                                                  
+T3    2N7002                  NMOSSOT23               SOT-23                 MOS FET                                                                   unknown    unknown                             
+T4    2N7002                  ZETEX_NMOSSOT23         ZETEX_SOT-23           MOS FET                                                                                                                  
+T5    FDN358P                 ZETEX_PMOSSOT23         ZETEX_SOT-23           MOS FET                                                                                                                  
+T6    2N7002                  ZETEX_NMOSSOT23         ZETEX_SOT-23           MOS FET                                                                                                                  
+T7    FDN358P                 ZETEX_PMOSSOT23         ZETEX_SOT-23           MOS FET                                                                                                                  
+T8    2N7002                  ZETEX_NMOSSOT23         ZETEX_SOT-23           MOS FET                                                                                                                  
+T9    FDN358P                 ZETEX_PMOSSOT23         ZETEX_SOT-23           MOS FET                                                                                                                  
+T10   2N7002                  ZETEX_NMOSSOT23         ZETEX_SOT-23           MOS FET                                                                                                                  
+T11   FDN358P                 ZETEX_PMOSSOT23         ZETEX_SOT-23           MOS FET                                                                                                                  
+T12   2N7002                  ZETEX_NMOSSOT23         ZETEX_SOT-23           MOS FET                                                                                                                  
+T13   FDN358P                 ZETEX_PMOSSOT23         ZETEX_SOT-23           MOS FET                                                                                                                  
+X1    MKDS1/2-3,81            MKDS1/2-3,81            2POL381                MKDS 1/2-3,81 - Order No. 1727010 (RS-Online - 101-5384)                                                                 
+X2    DF11_8DP_2DS            DP11_8DP_2DS            DP11_8DP-2DS                                                                                                                                    
+X3    MKDS1/3-3,81            MKDS1/3-3,81            3POL381                MKDS 1/3-3,81 - Order No. 1727023 (RS-Online - 101-5390)                                                                 
+X4    MKDS1/8-3,81            MKDS1/8-3,81            8POL381                MKDS 1/8-3,81 - Order No. 1727078                                                                                        
+X5    MKDS1/8-3,81            MKDS1/8-3,81            8POL381                MKDS 1/8-3,81 - Order No. 1727078                                                                                        
+X6    MKDS1/4-3,81            MKDS1/4-3,81            4POL381                MKDS 1/4-3,81 - Order No. 1727036                                                                                        
+X7    MKDS1/3-3,81            MKDS1/3-3,81            3POL381                MKDS 1/3-3,81 - Order No. 1727023 (RS-Online - 101-5390)                                                                 
