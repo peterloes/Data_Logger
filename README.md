@@ -1,7 +1,7 @@
 # Platform for Animal environmental influences. Data Logger functions. 
 
 A standalone Platform to enable long-term environmental observations
-of two different selectable sensors (I2C Interface) and two puls counter for e.g. Lightbarriers pulses.
+of two different selectable sensors (I2C Interface) and two pulse counters for e.g. Lightbarriers pulses.
 
 Firmware development discontinued.
 
@@ -10,7 +10,7 @@ Hardware Design supported:
 - Sensirion: Humidity and Temperature Sensor SHT3x-DIS
 - Sensirion: CO₂, Humidity and Temperature Sensor SCD30
 - Vishay: Fully Integrated Proximity and Ambient Light Sensor with Infrared Emitter VCNL4040
-- Puls Counter     	 
+- Pulse Counter     	 
 
 ![My image](https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/1_Electronic_board_top.jpg)
 
@@ -56,7 +56,7 @@ USART0/ USART1:
 
   Set Sensor1/Sensor2/PulsCounter1/PulsCounter2
 
-  Set Date/Time/Intervall
+  Set Date/Time/Interval
 
 - PE10_USO_TX#0
 
@@ -110,7 +110,7 @@ Second Sensor Connector:
 
 - GND
 
-Puls Counters:
+Pulse Counters:
 
 - PD2_PULS1_COUNTER
 
