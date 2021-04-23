@@ -3,7 +3,7 @@
 A standalone Platform to enable long-term environmental observations
 of two different selectable sensors (I2C Interface) and two puls counter for e.g. Lightbarriers pulses.
 
-Firmware working process discontinued.
+Firmware development discontinued.
 
 Hardware Design supported:
 
