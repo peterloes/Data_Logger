@@ -16,6 +16,8 @@ Hardware Design supported:
 
 Board Dimensions: 80mm x 60mm
 
+https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger_2019.sch.pdf
+
 Board Power:
 - Lithium Ionen Akkupack 17V@300mA
 - Coincell CR-2032        3V@225mAh 
