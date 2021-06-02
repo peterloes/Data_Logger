@@ -26,14 +26,14 @@ Board Power:
 
 Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
 
- - Sensirion: Humidity and Temperature Sensor SHT3x-DIS:        2.2@200µA
+ - Sensirion: Humidity and Temperature Sensor SHT3x-DIS:        2.2v@200µA
 
  - Sensirion: CO₂, Humidity and Temperature Sensor SCD30:       3.3V@ max.75mA
 
  - Vishay: Proximity Sensor and Ambient Light Sensor VCNL 4040: 2.5V@300µA
 
-   Similar Software(BatteryMon.c): https://github.com/peterloes/HRD
-
+   Similar Software(SensorMon.c): https://github.com/peterloes/HRD_SENSOR
+   
 Pushbuttons:
 
  - PA4_SIGNAL_POWER:   On/Off Device
