@@ -42,7 +42,7 @@ Pushbuttons:
 
  - MCU_RESET
 
-   Similar Software: https://github.com/peterloes/HRD
+   Similar Software: https://github.com/peterloes/HRD_SENSOR
 
 2x LED's:
 
