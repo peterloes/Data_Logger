@@ -21,7 +21,7 @@ Schematics:
 https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger.sch.pdf
 
 Board Power:
- - Lithium Ionen Akkupack 17V@300mA
+ - Lithium Ionen Akkupack 17V@300mA or
  - Coincell CR-2032        3V@225mAh 
 
 Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
