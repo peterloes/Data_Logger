@@ -16,6 +16,9 @@ Hardware Design supported:
 
 Board Dimensions: 80mm x 60mm
 
+Hyperterminal Screen:
+https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hyperterminal.jpg
+
 Schematics:
 
 https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger.sch.pdf
