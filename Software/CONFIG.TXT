@@ -1,0 +1,96 @@
+# Configuration file for SL_2021
+#
+# Revision History
+# 2019-03-28,rage   Initial version
+
+#########################################################################
+#                                                                       #
+#  IMPORTANT NOTE: All time values must be specified in STANDARD time,  #
+#                  i.e. MEZ!  If DCF77 time is MESZ (daylight saving    #
+#                  time), they will automatically converted to MESZ.    #
+#                                                                       #
+#########################################################################
+
+# Configuration Variables in config.txt:
+
+# SENSOR1_TYPE [VCNL, HT, CO2, C]
+#   - VCNL is  Fully Integrated Proximity and
+#     Ambient Light Sensor with Infrared Emitter,
+#   - HT is Humidity and Temperature Sensor, 
+#   - CO2 is C02, humidity and temperature sensor 
+#   - C is Event Recorder tells the User that events occurred (Counter)
+#   POWER_SENSOR1 is always VDD_SENSOR1
+
+
+# SENSOR2_TYPE [VCNL, HT, CO2, C]
+#   - VCNL is  Fully Integrated Proximity and
+#     Ambient Light Sensor with Infrared Emitter,
+#   - HT is Humidity and Temperature Sensor, 
+#   - CO2 is C02, humidity and temperature sensor 
+#   - C is Event Recorder tells the User that events occurred (Counter)
+#   POWER_SENSOR2 is always VDD_SENSOR2
+
+# SENSOR1_ON_TIME_1~5, SENSOR1_OFF_TIME_1~5, SENSOR2_ON_TIME_1~5, SENSOR2_OFF_TIME_1~5,
+#   These variables determine the on and off times of the SENSOR1,
+#   respective SENSOR2 power output.  
+
+# SENSOR1_INTERVAL, SENSOR1_ON_DURATION, SENSOR2_INTERVAL, SENSOR2_ON_DURATION in [s]
+#   These optional variables allow you to define a Power Cycle Interval within
+#   the on times of the respective power output.  XXX_INTERVAL specifies the
+#   interval in seconds, XXX_ON_DURATION the power ON duration in seconds
+#   within this interval.
+#   The OFF duration is calculated XXX_INTERVAL minus XXX_ON_DURATION.
+#   There exists only one set of values per output.  These are applicable for
+#   all five on/off-times.
+#   POWER_SENSOR1 is always VDD_SENSOR1
+#   POWER_SENSOR2 is always VDD_SENSOR2
+
+# TIME [HOUR, MINUTE, SECOND]
+#   The Logger time without radio clock receiver(dcf77) is much too inaccurate.
+#   At least the error will be 10 minutes per year and there will be no detection for MEZ/MESZ.
+#   But Software and Hardware is available to support dcf 77 radio clock receiver. 
+#   It makes no sense to set Seconds via the config.txt file and
+#   Milliseconds are calculated from the microcontroller.     
+#   The default time given from the microcontroller after repower will be always
+#   xxxxxxxx-120000.000  xxxxxxxx-hhmmss.msmsms
+#   Set [HOUR, MINUTE, SECOND] to [00] to skip changes!! 
+
+# DATE [DAY, MONTH, YEAR]
+#   The default date given from the microcontroller after repower will be always
+#   20140101-xxxxxx.xxx  YYYYMMDD-xxxxxx.xxx
+#   Set [YEAR, MONTH, DAY] to [00] to skip changes
+  
+
+    # SENSOR1 configuration
+SENSOR1_TYPE           = HT
+
+   # SENSOR2 configuration
+#SENSOR2_TYPE           = HT
+
+    # Operating times for SENSOR1 output [hour:min] 
+SENSOR1_ON_TIME_1       = 08:00
+SENSOR1_OFF_TIME_1      = 13:00
+#SENSOR1_ON_TIME_2      = 15:18
+#SENSOR1_OFF_TIME_2     = 15:20
+
+    # Power Cycle Interval for SENSOR1 output [s]
+SENSOR1_INTERVAL        = 20   # 20 sec. Interval
+SENSOR1_ON_DURATION     =  5   #  5 sec. On Duration
+
+    # Operating times for SENSOR2 output [hour:min] 
+#SENSOR2_ON_TIME_1       = 08:00
+#SENSOR2_OFF_TIME_1      = 17:00
+
+    # Power Cycle Interval for SENSOR2 output [s]
+#SENSOR2_INTERVAL        = 20   # 60 sec. Interval
+#SENSOR2_ON_DURATION     =  5   # 30 sec. On Duration
+
+    # Date [YYYYMMDD]
+DAY    = 13  # DD   
+MONTH  = 07  # MM
+YEAR   = 21  # 20YY
+
+    # Time [hh:mm:ss] 
+HOUR   = 12   # set time for useful Operating times!
+MINUTE = 55   # set time for useful Operating times!
+SECOND = 00   # skip changes
