@@ -22,6 +22,10 @@ https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hy
 
 https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hyperterminal_2.jpg
 
+CONFIG.TXT:
+
+https://github.com/peterloes/Data_Logger/blob/main/Software/CONFIG.TXT
+
 Schematics:
 
 https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger.sch.pdf
