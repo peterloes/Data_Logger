@@ -26,14 +26,13 @@ CONFIG.TXT:
 
 https://github.com/peterloes/Data_Logger/blob/main/Software/CONFIG.TXT
 
-Schematics:
-
-https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger.sch.pdf
-
 Handheld Readout Device(HRD) for Sensors:
 
 https://github.com/peterloes/HRD_SENSOR
 
+Schematics:
+
+https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger.sch.pdf
 
 Board Power:
  - Lithium Ionen Akkupack 17V@300mA or
