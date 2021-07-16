@@ -30,6 +30,11 @@ Schematics:
 
 https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger.sch.pdf
 
+Handheld Readout Device(HRD) for Sensors:
+
+https://github.com/peterloes/HRD_SENSOR
+
+
 Board Power:
  - Lithium Ionen Akkupack 17V@300mA or
  - Coincell CR-2032        3V@225mAh 
