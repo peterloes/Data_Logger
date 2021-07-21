@@ -332,8 +332,7 @@ int main( void )
     ExtIntEnableAll();
     
     /* Read microcontroller voltage */
-    LogSensorInfo (BAT_LOG_ONLY);
-	
+    LogSensorInfo(BAT_LOG_ONLY);
 
     /* ============================================ *
      * ========== Service Execution Loop ========== *
@@ -376,9 +375,9 @@ int main( void )
                 /* Verify new Configuration */
 		VerifyConfiguration();
 
-                /* Initialize Sensor Monitor according to (new) configuration */
+                /* Initialize Sensor1 Monitor according to (new) configuration */
                 Sensor1MonInit();
-                                        
+                   
                 /* Flush log buffer again and switch SD-Card power off */
 		LogFlush(false);
             }

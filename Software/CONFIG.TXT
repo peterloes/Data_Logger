@@ -65,7 +65,7 @@
 SENSOR1_TYPE           = HT
 
    # SENSOR2 configuration
-#SENSOR2_TYPE           = HT
+#SENSOR2_TYPE           = C
 
     # Operating times for SENSOR1 output [hour:min] 
 SENSOR1_ON_TIME_1       = 08:00
@@ -82,15 +82,15 @@ SENSOR1_ON_DURATION     =  5   #  5 sec. On Duration
 #SENSOR2_OFF_TIME_1      = 17:00
 
     # Power Cycle Interval for SENSOR2 output [s]
-#SENSOR2_INTERVAL        = 20   # 60 sec. Interval
-#SENSOR2_ON_DURATION     =  5   # 30 sec. On Duration
+#SENSOR2_INTERVAL        = 60   # 60 sec. Interval
+#SENSOR2_ON_DURATION     = 30   # 30 sec. On Duration
 
-    # Date [YYYYMMDD]
-DAY    = 13  # DD   
-MONTH  = 07  # MM
-YEAR   = 21  # 20YY
+    # Date [00]
+DAY    = 09     
+MONTH  = 07
+YEAR   = 21
 
     # Time [hh:mm:ss] 
-HOUR   = 12   # set time for useful Operating times!
-MINUTE = 55   # set time for useful Operating times!
+HOUR   = 11   # set time for useful Operating times!
+MINUTE = 28   # set time for useful Operating times!
 SECOND = 00   # skip changes
