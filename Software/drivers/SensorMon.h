@@ -53,6 +53,7 @@ typedef enum
     BCT_UNKNOWN    = 0x00,	//!< Sensor Controller Type not known yet
     BCT_SHT3X_DFLT = 0x01,	//!< Sensirion Controller default(2015)
     BCT_SHT3X_ALT  = 0x02,	//!< Sensirion Controller (2015)
+    BCT_VCNL       = 0x03
 } BC_TYPE;
 
    /*!@brief SENSOR type from config.txt file.
@@ -122,6 +123,7 @@ typedef struct
 typedef enum
 {
     SBS_NONE = (-1),		         //!< (-1) No Command / Address
+    /* Sensirion SHT31-D */
     SBS_REPEATABILITY_CLOCK_HIGH_ENABLED    = 0x3022C06,  //!< 0X2C06 enabled
     SBS_REPEATABILITY_CLOCK_MEDIUM_ENABLED  = 0x3002C0D,  //!< 0X2C0D enabled
     SBS_REPEATABILITY_CLOCK_LOW_ENABLED     = 0x3002C10,  //!< 0X2C10 enabled
@@ -152,7 +154,9 @@ typedef enum
     SBS_HEATER_ENABLE         = 0x302306D,  //!< 0x306D Heater enable
     SBS_HEATER_DISABLE        = 0x3023066,  //!< 0x306D Heater disabled
     SBS_READ_STATUS           = 0x302F32D,  //!< 0xF32D Hex: @see SBS_16_BITS
-    SBS_CLEAR_STATUS          = 0x3023041,  //!< 0x3041 Clear status register  
+    SBS_CLEAR_STATUS          = 0x3023041,  //!< 0x3041 Clear status register 
+    /* Vishay VCNL4040 */
+    SBS_READ_SERIAL_NUMBER_VCNL    = 0x3020C00,  //!< 0xC000 Serial Number
     END_SBS_CMD,			   //!< End of SBS Command Definitions
 } SBS_CMD;
 

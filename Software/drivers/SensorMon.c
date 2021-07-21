@@ -202,7 +202,8 @@ static SENSOR_CONFIG l_pSENSOR_Cfg;
 static const BC_INFO l_ProbeList[] =
 {  //  addr	type		name (maximum 10 characters!)
     {  0x88,	BCT_SHT3X_DFLT,	"SHT3X-DFLT"	},  // 0x44 Address 7 MSBs 0x88
-    {  0x8A,	BCT_SHT3X_ALT,	"SHT3X-ALT",	},  // 0x45 Address 7 MSBs 0x8A
+    {  0x8A,	BCT_SHT3X_ALT,	"SHT3X-ALT"	},  // 0x45 Address 7 MSBs 0x8A
+    {  0xC0,    BCT_VCNL,       "VCNL4040"      },  // 0x60 Address 7 MSBs 0xC0
     {  0x00,	BCT_UNKNOWN,	""		}   // End of the list};
 };
     
@@ -987,7 +988,14 @@ void	LogSensorInfo (BAT_LOG_INFO_LVL infoLvl)
         switch (l_pSENSOR_Cfg.SENSOR1_Type)
         {
             case SENSOR1_TYPE_VCNL:
-               Log ("SENSOR1 VCNL not yet programmed!");
+               Log ("SENSOR1 Serial Number     : %s",	// display as Hex value now
+	       ItemDataString(SBS_READ_SERIAL_NUMBER_VCNL, FRMT_HEX));
+                  
+               /* Switch off SENSOR POWER if Alarm is off */
+               PowerOutput (PWR_OUT_SENSOR1, PWR_OFF);
+                    
+               /* Enable Probe SENSOR2 */
+               l_flgSensorCtrlProbe = true;                     
                break;
                     
             case SENSOR1_TYPE_HT:
