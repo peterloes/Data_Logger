@@ -1,4 +1,4 @@
-# Platform for Animal environmental influences. Data Logger functions. 
+# Next generation of Data Logger for varied range support of Sensors.
 
 A standalone Platform to enable long-term environmental observations
 of different selectable sensors (I2C Interface) and two pulse counters for e.g. Lightbarriers pulses.
