@@ -176,7 +176,7 @@ int	i;
 	if (l_hdlPwrInterval[i] == NONE)
 	    l_hdlPwrInterval[i] = sTimerCreate (IntervalPowerControl);
     }
-
+    
     /* Initialize power output enable pins */
     for (i = 0;  i < NUM_PWR_OUT;  i++)
     {
@@ -311,19 +311,14 @@ int32_t	interval, duration;
  *****************************************************************************/
 void	PowerOutput (PWR_OUT output, bool enable)
 {
-
-  /*!@brief data collect is activate. */
+    /*!@brief data collect is activate. */
 bool   isDataCollectOn;	
 bool   isDiskRemoved;
 
     /* Get current state of DataCollectOn (PB2 is ON) */
     isDataCollectOn = IsDataCollectOn();
     isDiskRemoved = IsDiskRemoved(); 
- 
-    /* No power enable if Data Collection is On and Disk Removed is active */
-    if (!isDataCollectOn && !isDiskRemoved)
-       return;
-        
+
     /* Parameter check */
     if (output == PWR_OUT_NONE)
 	return;		// power output not assigned, nothing to be done
@@ -345,17 +340,28 @@ bool   isDiskRemoved;
     /* Switch power output on or off */
     *l_PwrOutDef[output].BitBandAddr = enable;
     
+    /* Data Collection is off and Disk is not removed */ 
+    if(!isDataCollectOn && !isDiskRemoved)
+       return;   
+    
 #ifdef LOGGING
     Log ("Power Output %s %sabled",
    	 g_enum_PowerOutput[output], enable ? "en":"dis");
 #endif
-    
+   
+    /* Data Collection is off and Disk is not removed */ 
+//    if(!isDataCollectOn && !isDiskRemoved)
+//       return; 
+
+   /* If Power Output enabled get Message */ 
    if(enable)
-   {  
-       LogSensorInfo (BAT_LOG_INFO_VERBOSE);
-       msDelay(500);
-       LogSensorInfo (BAT_LOG_INFO_VERBOSE1);
-   } 
+   {   
+      if (output == PWR_OUT_SENSOR1)
+        LogSensorInfo (BAT_LOG_INFO_VERBOSE1);
+      
+      if (output == PWR_OUT_SENSOR2)
+         LogSensorInfo (BAT_LOG_INFO_VERBOSE2);
+   }
 }
 
 
@@ -453,6 +459,18 @@ static void	IntervalPowerControl (TIM_HDL hdl)
 {
 PWR_OUT	 pwrOut;
 int	 pwrState;
+
+  /*!@brief data collect is activate. */
+//bool   isDataCollectOn;	
+//bool   isDiskRemoved;
+
+    /* Get current state of DataCollectOn (PB2 is ON) */
+  //  isDataCollectOn = IsDataCollectOn();
+   // isDiskRemoved = IsDiskRemoved(); 
+
+   /* Data Collection is off and Disk is not removed */ 
+  // if(!isDataCollectOn && !isDiskRemoved)
+   //   return; 
 
     /* Determine Power Output */
     if (hdl == l_hdlPwrInterval[PWR_OUT_SENSOR1])

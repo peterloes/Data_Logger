@@ -38,9 +38,10 @@ Revision History:
 typedef enum
 {
     BAT_LOG_ONLY,	        //!< Get current from supply coincell battery
-    BAT_LOG_INFO_SHORT,		//!< Log short information of Sensor status
-    BAT_LOG_INFO_VERBOSE,	//!< Log verbose information of Sensor status
+    BAT_LOG_INFO_SHORT1,		//!< Log short information of Sensor status
+    BAT_LOG_INFO_SHORT2,		//!< Log short information of Sensor status
     BAT_LOG_INFO_VERBOSE1,	//!< Log verbose information of Sensor status
+    BAT_LOG_INFO_VERBOSE2,	//!< Log verbose information of Sensor status
     END_BAT_LOG_INFO_LVL
 } BAT_LOG_INFO_LVL;
 
@@ -212,19 +213,18 @@ extern const char *g_SensorCtrlName;
     /*!@brief SENSOR1 type. */
 extern SENSOR1_TYPE g_SENSOR1_Type;
 extern PWR_OUT	    g_SENSOR_Power;
-
 extern const char *g_enum_SENSOR1_Type[];
 
     /*!@brief SENSOR2 type. */
 extern SENSOR2_TYPE g_SENSOR2_Type;
-
 extern const char *g_enum_SENSOR2_Type[];
 
 
 /*================================ Prototypes ================================*/
 
-    /* Initialize or deinitialize  Sensor Monitor module */
+    /* Initialize or deinitialize  Sensors Monitor modules */
 void	Sensor1MonInit (void);
+void	Sensor2MonInit (void);
 void	SensorMonDeinit (void);
 
     /* Register read functions */

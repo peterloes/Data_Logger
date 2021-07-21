@@ -316,7 +316,7 @@ int8_t	on_hour, on_min, off_hour, off_min;
     time = g_CurrDateTime.tm_hour * 60 + g_CurrDateTime.tm_min;
 
 #ifdef LOGGING
-    Log ("Checking Sensor alarm times against current time %02d:%02d",
+    Log ("Checking Sensor1 and Sensor2 alarm times against current time %02d:%02d",
 	 g_CurrDateTime.tm_hour, g_CurrDateTime.tm_min);
 #endif
 

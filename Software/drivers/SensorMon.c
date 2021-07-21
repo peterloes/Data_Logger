@@ -81,12 +81,17 @@ Revision History:
 
     /*!@name Hardware Configuration: SMBus controller and pins. */
 //@{
-#define SMB_GPIOPORT		gpioPortA	//!< Port SMBus interface
-#define SMB_SDA_PIN		0		//!< Pin PA0 for SDA signal
-#define SMB_SCL_PIN		1		//!< Pin PA1 for SCL signal
+#define SMB_GPIOPORT2		gpioPortD	//!< Port SMBus interface
+#define SMB_SDA_PIN2		6		//!< Pin PA0 for SDA signal
+#define SMB_SCL_PIN2		7		//!< Pin PA1 for SCL signal
+
+#define SMB_GPIOPORT1		gpioPortA	//!< Port SMBus interface
+#define SMB_SDA_PIN1		0		//!< Pin PA0 for SDA signal
+#define SMB_SCL_PIN1		1		//!< Pin PA1 for SCL signal
 #define SMB_I2C_CTRL		I2C0		//!< I2C controller to use
 #define SMB_I2C_CMUCLOCK	cmuClock_I2C0	//!< Enable clock for I2C
-#define SMB_LOC		I2C_ROUTE_LOCATION_LOC0 //!< Use location 0
+#define SMB_LOC1		I2C_ROUTE_LOCATION_LOC0 //!< Use location 0
+#define SMB_LOC2		I2C_ROUTE_LOCATION_LOC1 //!< Use location 1
 #define SMB_IRQn		I2C0_IRQn	//!< I2C controller interrupt
 #define SMB_IRQHandler		I2C0_IRQHandler	//!< SMBus interrupt handler
     /* PD1 is Hold_Power and ADC0_CH1 */
@@ -241,14 +246,17 @@ static void	ADC_Config(void);
 
 /***************************************************************************//**
  *
- * @brief	Initialize the sensor monitoring module
+ * @brief	Initialize the Sensor1 monitoring module
  *
  * This routine initializes the board-specific SMBus (I2C) interface, which
- * is connected to the sensor.
+ * is connected to the Sensor1 and all other parts.
+ * But Sensor2MoniInit (void) initializes specific SMBus (I2C) interface.
  *
  ******************************************************************************/
 void	 Sensor1MonInit (void)
 {
+bool   isDataCollectOn;	 ///data collect is activate
+  
     /* Be sure to enable clock to GPIO (should already be done) */
     CMU_ClockEnable (cmuClock_GPIO, true);
 
@@ -264,11 +272,12 @@ void	 Sensor1MonInit (void)
 #endif
 
     /* Configure GPIOs for SMBus (I2C) functionality with Pull-Ups */
-    GPIO_PinModeSet (SMB_GPIOPORT, SMB_SCL_PIN, gpioModeWiredAndPullUp, 1);
-    GPIO_PinModeSet (SMB_GPIOPORT, SMB_SDA_PIN, gpioModeWiredAndPullUp, 1);
+    GPIO_PinModeSet (SMB_GPIOPORT1, SMB_SCL_PIN1, gpioModeWiredAndPullUp, 1);
+    GPIO_PinModeSet (SMB_GPIOPORT1, SMB_SDA_PIN1, gpioModeWiredAndPullUp, 1);
        
    /* Route SMB signals to the respective pins */
-   SMB_I2C_CTRL->ROUTE = I2C_ROUTE_SCLPEN | I2C_ROUTE_SDAPEN | SMB_LOC;
+   SMB_I2C_CTRL->ROUTE = I2C_ROUTE_SCLPEN | I2C_ROUTE_SDAPEN | SMB_LOC1;
+   
 
    /* Initialize SMBus (I2C) controller */
    I2C_Init (SMB_I2C_CTRL, &smbInit);
@@ -299,24 +308,98 @@ void	 Sensor1MonInit (void)
   
     /* Initialize Battery Info structure */
     l_BatInfo.Req_1 = l_BatInfo.Req_2 = SBS_NONE;
-       
-    if (g_SENSOR1_Type == SENSOR1_TYPE_NONE)
-    {
-       /* There is no Sensor1 Type */
-       Log ("SENSOR1 Type is NONE");
-       return;     
+
+ 
+    /* Get current state COLLECTING DATA is ON or off */
+    isDataCollectOn = IsDataCollectOn();
+    
+    if (!isDataCollectOn)
+    { 
+       /* Build new structure based on the configuration variables */
+       l_pSENSOR_Cfg.SENSOR1_Type   = g_SENSOR1_Type;
+ 
+       if (g_SENSOR1_Type == SENSOR1_TYPE_NONE)
+       {
+          /* There is no Sensor1 Type */
+          Log ("ERROR: SENSOR1 Type is NONE");
+          Log ("Please use first VDD_SENSOR1");
+          return;     
+       }
+       else
+       {
+#ifdef LOGGING
+       Log ("SENSOR1 of Type %s for VDD_%s read from config.txt",
+           g_enum_SENSOR1_Type[g_SENSOR1_Type], g_enum_PowerOutput[PWR_OUT_SENSOR1]);
+ #endif
+        } 
+      
+        /* Build new structure based on the configuration variables */
+        l_pSENSOR_Cfg.SENSOR2_Type   = g_SENSOR2_Type;
+
+        if (g_SENSOR2_Type == SENSOR2_TYPE_NONE)
+        {
+           /* There is no Sensor2 Type */
+           Log ("SENSOR2 Type is NONE");
+        }
+        else
+        {
+#ifdef LOGGING
+       Log ("SENSOR2 of Type %s for VDD_%s read from config.txt",
+           g_enum_SENSOR2_Type[g_SENSOR2_Type], g_enum_PowerOutput[PWR_OUT_SENSOR2]);
+#endif
+        }   
+     
+        LogSensorInfo (BAT_LOG_INFO_SHORT1);
+  
+        Log ("COLLECT DATA with Button 2 ");
     }
     
-    /* Build new structure based on the configuration variables */
-    l_pSENSOR_Cfg.SENSOR1_Type   = g_SENSOR1_Type;
-    
-    
-#ifdef LOGGING
-       Log ("Initializing SENSOR1 of type %s for VDD_%s",
-           g_enum_SENSOR1_Type[g_SENSOR1_Type], g_enum_PowerOutput[PWR_OUT_SENSOR1]);       
-#endif
-      Log ("COLLECT DATA with Button 2 ");
 }
+
+/***************************************************************************//**
+ *
+ * @brief	Initialize the Sensor2 monitoring module
+ *
+ * This routine initializes the board-specific SMBus (I2C) interface, which
+ * is connected to the Sensor2.
+ *
+ ******************************************************************************/
+void	 Sensor2MonInit (void)
+{
+bool   isDataCollectOn;	 ///data collect is activate
+  
+    /* Be sure to enable clock to GPIO (should already be done) */
+    CMU_ClockEnable (cmuClock_GPIO, true);
+
+    /* Enable clock for I2C controller*/
+    CMU_ClockEnable(SMB_I2C_CMUCLOCK, true);
+    
+      /* Configure GPIOs for SMBus (I2C) functionality with Pull-Ups */
+    GPIO_PinModeSet (SMB_GPIOPORT2, SMB_SCL_PIN2, gpioModeWiredAndPullUp, 1);
+    GPIO_PinModeSet (SMB_GPIOPORT2, SMB_SDA_PIN2, gpioModeWiredAndPullUp, 1);
+       
+   /* Route SMB signals to the respective pins */
+   SMB_I2C_CTRL->ROUTE = I2C_ROUTE_SCLPEN | I2C_ROUTE_SDAPEN | SMB_LOC2;
+   
+
+   /* Initialize SMBus (I2C) controller */
+   I2C_Init (SMB_I2C_CTRL, &smbInit);
+   
+    /* Clear and enable SMBus interrupt */
+    NVIC_SetPriority(SMB_IRQn, INT_PRIO_SMB);
+    NVIC_ClearPendingIRQ (SMB_IRQn);
+    NVIC_EnableIRQ (SMB_IRQn);
+    
+    
+     /* Get current state COLLECTING DATA is ON or off */
+    isDataCollectOn = IsDataCollectOn();
+    
+    if (!isDataCollectOn)
+    { 
+       LogSensorInfo (BAT_LOG_INFO_SHORT2);
+    }
+}
+
 
     
 /***************************************************************************//**
@@ -373,18 +456,6 @@ static void SensorCtrlProbe (void)
 {
 int	i;
 int	status;
- 
-    if (g_SENSOR1_Type == SENSOR1_TYPE_NONE)
-    {
-        /* There is no Sensor1 Type */
-      Log ("ERROR: SENSOR1 Type is NONE");
-       return;
-    }
-   
-#ifdef LOGGING
-//    Log ("Sensor1 is %s on VDD_SENSOR1",
-//	 g_enum_SENSOR1_Type[g_SENSOR1_Type]);
-#endif 
 
     for (i = 0;  l_ProbeList[i].addr != 0x00;  i++)
     {
@@ -462,15 +533,15 @@ static void  SMB_Reset (void)
     msDelay(100);
 
     /* check if SCL is still low */
-    if ((GPIO->P[SMB_GPIOPORT].DIN & (1 << SMB_SCL_PIN)) == 0)
+    if ((GPIO->P[SMB_GPIOPORT1].DIN & (1 << SMB_SCL_PIN1)) == 0)
     {
 	/* drive SDA low */
-	GPIO->P[SMB_GPIOPORT].DOUTCLR = (1 << SMB_SDA_PIN);
-	SMB_I2C_CTRL->ROUTE = I2C_ROUTE_SCLPEN | SMB_LOC;
+	GPIO->P[SMB_GPIOPORT1].DOUTCLR = (1 << SMB_SDA_PIN1);
+	SMB_I2C_CTRL->ROUTE = I2C_ROUTE_SCLPEN | SMB_LOC1;
 
 	/* wait until SCL returns to high */
 	uint32_t start = RTC->CNT;
-	while ((GPIO->P[SMB_GPIOPORT].DIN & (1 << SMB_SCL_PIN)) == 0)
+	while ((GPIO->P[SMB_GPIOPORT1].DIN & (1 << SMB_SCL_PIN1)) == 0)
 	{
 	    /* check for timeout */
 	    if (((RTC->CNT - start) & 0x00FFFFFF) > I2C_RECOVERY_TIMEOUT)
@@ -481,7 +552,7 @@ static void  SMB_Reset (void)
 	}
 
 	/* re-configure GPIO as SDA signal */
-	SMB_I2C_CTRL->ROUTE = I2C_ROUTE_SCLPEN | I2C_ROUTE_SDAPEN | SMB_LOC;
+	SMB_I2C_CTRL->ROUTE = I2C_ROUTE_SCLPEN | I2C_ROUTE_SDAPEN | SMB_LOC1;
     }
 }
 
@@ -893,17 +964,6 @@ int		 d, h, m;	// FRMT_DURATION: days, hours, minutes
 void	LogSensorInfo (BAT_LOG_INFO_LVL infoLvl)
 {
 #ifdef LOGGING
-bool   isDataCollectOn;	 ///data collect is activate
-
-    /* Get current state COLLECTING DATA is ON or off */
-    isDataCollectOn = IsDataCollectOn();
-    
-    /* Check if the Battery Controller Probe routine should be called (again) */
-    if (isDataCollectOn && l_flgSensorCtrlProbe)
-    {
-	l_flgSensorCtrlProbe = false;
-	SensorCtrlProbe();
-    }
     
     if (infoLvl == BAT_LOG_ONLY)
     {
@@ -912,14 +972,18 @@ bool   isDataCollectOn;	 ///data collect is activate
          ItemDataString(SBS_NONE, FRMT_VDD));
     }
   
-    if (infoLvl == BAT_LOG_INFO_SHORT)// Read by Bat_Alarm
+    if (infoLvl == BAT_LOG_INFO_SHORT1)// Read by Bat_Alarm
     {
-        Log ("VOLTAGE Minimum 2.8V <= %s",	
-          ItemDataString(SBS_NONE, FRMT_VDD));
-       
-        Log ("SENSOR1 Type is \"%s\" at address 0x%02X",
-	     g_SensorCtrlName, (g_SensorCtrlAddr >> 1));
-
+        /* Check if the Sensor Probe routine should be called (again) */
+        if (l_flgSensorCtrlProbe)
+        { 
+	    l_flgSensorCtrlProbe = false;
+            SensorCtrlProbe(); 
+                   
+            Log ("SENSOR1 Type is \"%s\" at address 0x%02X",
+	    g_SensorCtrlName, (g_SensorCtrlAddr >> 1));
+        }
+        
         switch (l_pSENSOR_Cfg.SENSOR1_Type)
         {
             case SENSOR1_TYPE_VCNL:
@@ -928,7 +992,13 @@ bool   isDataCollectOn;	 ///data collect is activate
                     
             case SENSOR1_TYPE_HT:
                Log ("SENSOR1 Serial Number     : %s",	// display as Hex value now
-	           ItemDataString(SBS_READ_SERIAL_NUMBER, FRMT_HEX));
+	       ItemDataString(SBS_READ_SERIAL_NUMBER, FRMT_HEX));
+                  
+               /* Switch off SENSOR POWER if Alarm is off */
+               PowerOutput (PWR_OUT_SENSOR1, PWR_OFF);
+                    
+               /* Enable Probe SENSOR2 */
+               l_flgSensorCtrlProbe = true;                     
                break;
                
             case SENSOR1_TYPE_CO2:
@@ -936,76 +1006,168 @@ bool   isDataCollectOn;	 ///data collect is activate
                break;
                     
             case SENSOR1_TYPE_C:
-               Log ("Counter(not I2C) not yet programmed!");
-            break;
+               Log ("C Counter(not I2C) not yet programmed!(SENSOR1)");
+               break;
+            
+             case SENSOR1_TYPE_NONE:
+                Log ("SENSOR1 TYPE NONE: Please use first VDD_SENSOR1!");
+                return;
                             
-         default:		// unknown SENSOR1 Type
-            // restart state machine
-	    break;
+              default:		// unknown SENSOR1 Type
+                  // restart state machine
+	         break;
+         }
+            
+           /* De-Initialize the Sensor1 monitoring module */
+           SensorMonDeinit ();
+           
+           /* Initialize the Sensor2 monitoring module */
+           Sensor2MonInit();
+    }
+       
+    if (infoLvl == BAT_LOG_INFO_SHORT2)// Read by Bat_Alarm??
+    {
+        /* Check if the Sensor Probe routine should be called (again) */
+        if (l_flgSensorCtrlProbe)
+        { 
+	     l_flgSensorCtrlProbe = false;
+                      
+             SensorCtrlProbe(); 
+                   
+             Log ("SENSOR2 Type is \"%s\" at address 0x%02X",
+	     g_SensorCtrlName, (g_SensorCtrlAddr >> 1));
         }
+             
+        switch (l_pSENSOR_Cfg.SENSOR2_Type)
+        { 
+            case SENSOR2_TYPE_VCNL:
+               Log ("SENSOR2 VCNL not yet programmed!");
+               break;
+                    
+            case SENSOR2_TYPE_HT:
+               Log ("SENSOR2 Serial Number     : %s",	// display as Hex value now
+	       ItemDataString(SBS_READ_SERIAL_NUMBER, FRMT_HEX));
+               
+               /* Switch off SENSOR POWER if Alarm is off */
+               PowerOutput (PWR_OUT_SENSOR2, PWR_OFF);
+               break;
+               
+            case SENSOR2_TYPE_CO2:
+               Log ("SENSOR2 CO2 not yet programmed!");
+               break;
+                    
+            case SENSOR2_TYPE_C:
+               Log ("C Counter(not I2C) not yet programmed!(SENSOR2)");
+               break;
+            
+            case SENSOR2_TYPE_NONE:
+               Log ("SENSOR2 TYPE NONE: Please use first VDD_SENSOR1!");
+               break;
+                            
+            default:		// unknown SENSOR1 Type
+                // restart state machine
+	       break;
+        }
+        /* De-Initialize the Sensor1 monitoring module */
+        SensorMonDeinit ();
     }
     
     drvLEUART_sync();	// to prevent UART buffer overflow
  
     /* No get only measurement information */
-    if (infoLvl == BAT_LOG_INFO_VERBOSE)
-    {
-
-        switch (l_pSENSOR_Cfg.SENSOR1_Type)
-        {
-            case SENSOR1_TYPE_VCNL:
-               Log ("SENSOR1 VCNL not yet programmed!");
-               break;
-                    
-            case SENSOR1_TYPE_HT:
-               /* Set Measurement to 4 per second */
-               ItemDataString(SBS_REPEATABILITY_CLOCK_MPS_4_HIGH, FRMT_HEX);
-               
-               Log ("SENSOR1 Temperature     : %s",	// display as Hex value now
-               ItemDataString(SBS_FETCH_DATA, FRMT_TEMP));
-               break;
-               
-            case SENSOR1_TYPE_CO2:
-               Log ("SENSOR1 CO2 not yet programmed!");
-               break;
-                    
-            case SENSOR1_TYPE_C:
-               Log ("Counter(not I2C) not yet programmed!");
-            break;
-                            
-         default:		// unknown RFID reader type
-            // restart state machine
-	    break;
-        }
-    }
-    
-    /* No get only measurement information */
     if (infoLvl == BAT_LOG_INFO_VERBOSE1)
     {
-
+        /* Initialize the Sensor1 monitoring module */
+        Sensor1MonInit();
+        
+       SensorCtrlProbe();
+      
         switch (l_pSENSOR_Cfg.SENSOR1_Type)
         {
-            case SENSOR1_TYPE_VCNL:
-               Log ("SENSOR1 VCNL not yet programmed!");
-               break;
+           case SENSOR1_TYPE_VCNL:
+              Log ("SENSOR1 VCNL not yet programmed!");
+              break;
                     
-            case SENSOR1_TYPE_HT:
-               Log ("SENSOR1 Relative Humidity : %s",  // display as Hex value now
-               ItemDataString(SBS_FETCH_DATA, FRMT_RH));
-                break;
+           case SENSOR1_TYPE_HT:
+              msDelay(50); 
+              /* Set Measurement to 4 per second */
+              ItemDataString(SBS_REPEATABILITY_CLOCK_MPS_4_HIGH, FRMT_HEX);
+              msDelay(50); 
+              Log ("SENSOR1 Temperature     : %s",	// display as Hex value now
+              ItemDataString(SBS_FETCH_DATA, FRMT_TEMP));
+              msDelay(500);
+              Log ("SENSOR1 Relative Humidity : %s",  // display as Hex value now
+              ItemDataString(SBS_FETCH_DATA, FRMT_RH));
+              break;
                
             case SENSOR1_TYPE_CO2:
-               Log ("SENSOR1 CO2 not yet programmed!");
-               break;
+                Log ("SENSOR1 CO2 not yet programmed!");
+                break;
                     
             case SENSOR1_TYPE_C:
-               Log ("Counter(not I2C) not yet programmed!");
+               Log ("Counter(not I2C) not yet programmed!(SENSOR1)");
             break;
+            
+            case SENSOR1_TYPE_NONE:
+              Log ("SENSOR1 TYPE NONE: Please use first VDD_SENSOR1!");
+              return;
                             
          default:		// unknown RFID reader type
-            // restart state machine
-	    break;
-        }
+             // restart state machine
+	     break;
+            }
+           
+           /* De-Initialize the Sensor1 monitoring module */
+           SensorMonDeinit ();
+    }
+  
+    /* No get only measurement information */
+    if (infoLvl == BAT_LOG_INFO_VERBOSE2)
+    {
+        
+        /* Initialize Sensor2 Monitor according to (new) configuration */
+        Sensor2MonInit();
+        
+        SensorCtrlProbe();
+        
+        switch (l_pSENSOR_Cfg.SENSOR2_Type)
+        {
+          
+           case SENSOR2_TYPE_VCNL:
+              Log ("SENSOR2 VCNL not yet programmed!");
+              break;
+                    
+           case SENSOR2_TYPE_HT:
+              msDelay(50); 
+              /* Set Measurement to 4 per second */
+              ItemDataString(SBS_REPEATABILITY_CLOCK_MPS_4_HIGH, FRMT_HEX);
+              msDelay(50); 
+              Log ("SENSOR2 Temperature     : %s",	// display as Hex value now
+              ItemDataString(SBS_FETCH_DATA, FRMT_TEMP));
+              msDelay(500);
+              Log ("SENSOR2 Relative Humidity : %s",  // display as Hex value now
+              ItemDataString(SBS_FETCH_DATA, FRMT_RH));
+              break;
+              
+           case SENSOR2_TYPE_CO2:
+              Log ("SENSOR2 CO2 not yet programmed!");
+              break;
+                    
+           case SENSOR2_TYPE_C:
+              Log ("Counter(not I2C) not yet programmed!(SENSOR2)");
+              break;
+            
+           case SENSOR2_TYPE_NONE:
+              //Log ("SENSOR2 TYPE NONE:  Please use first VDD_SENSOR1!");
+               break;
+                            
+           default:		// unknown Sensor type
+              // restart state machine
+	      break;
+          }
+           
+           /* De-Initialize the Sensor1 monitoring module */
+           SensorMonDeinit (); 
      }    
     drvLEUART_sync();	// to prevent UART buffer overflow
     
@@ -1024,10 +1186,9 @@ bool   isDataCollectOn;	 ///data collect is activate
  ******************************************************************************/
 void	BatteryCheck (void)
 {
-bool	flgSensorCtrlProbe = l_flgSensorCtrlProbe;
 static bool isDiskRemoved;
 
-    /* Refresh flag isDiskRemoved */ 
+    /* Refresh flag isDiskRemoved */  
      isDiskRemoved = IsDiskRemoved(); 
 
     if(!isDiskRemoved)
@@ -1036,8 +1197,9 @@ static bool isDiskRemoved;
     if (l_flgSensorCtrlProbe)
     {
 	l_flgSensorCtrlProbe = false;
-	SensorCtrlProbe();
-    
+        
+        /* Set Power Enable Pin for the SENSOR receiver to OFF */
+        SensorCtrlProbe();    
     }
     
     /* Check for Battery Information Request */
@@ -1070,8 +1232,7 @@ static bool isDiskRemoved;
 	l_flgBatMonTrigger = false;
 
 	/* Log verbose information, if Battery Pack has changed */
-	LogSensorInfo (flgSensorCtrlProbe ? BAT_LOG_INFO_VERBOSE
-					    : BAT_LOG_INFO_SHORT);
+	LogSensorInfo (BAT_LOG_INFO_SHORT1);
     }
 }
 

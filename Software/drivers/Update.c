@@ -50,7 +50,7 @@ extern void ShowPowerLogger_LED1 (bool enable);
 /*================================ Local Data ================================*/
 
     /*!@brief Flag to trigger Power Off. */
-static volatile bool	 l_flgPowerOff = false;
+static volatile bool	 l_flgPowerOff;
 
     /*!@brief Flag to trigger Sensor Controller Probing. */
 static volatile bool	 l_flgSensorPowerOff = false;
@@ -177,7 +177,7 @@ static bool isDiskRemoved;
 	    flgPowerOffActive = false;
            
             Log ("DATA LOGGER is ON");
- 
+            
             /*  Switch yellow LED2 on */ 
             ShowPowerLogger_LED1 (true);
             SET_POWER_PIN(1);	// set FET input to HIGH
@@ -219,10 +219,7 @@ static bool isDiskRemoved;
             ShowDataCollect_LED2 (true);
             
             l_flgDataCollectIsOn = true;
-            
-            /* Read controller voltage */
-            LogSensorInfo (BAT_LOG_INFO_SHORT);
-       	}
+      	}
     }
  
     /* Refresh flag isDiskRemoved */ 
