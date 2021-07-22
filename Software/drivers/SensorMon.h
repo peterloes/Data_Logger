@@ -51,9 +51,10 @@ typedef enum
 typedef enum
 {
     BCT_UNKNOWN    = 0x00,	//!< Sensor Controller Type not known yet
-    BCT_SHT3X_DFLT = 0x01,	//!< Sensirion Controller default(2015)
-    BCT_SHT3X_ALT  = 0x02,	//!< Sensirion Controller (2015)
-    BCT_VCNL       = 0x03
+    BCT_SHT3X_DFLT = 0x01,	//!< Sensirion SHT3X-D default(2018)
+    BCT_SHT3X_ALT  = 0x02,	//!< Sensirion SHT3X-D (2018)
+    BCT_VCNL       = 0x03,      //!< Vishay VCNL4040 (2019)    
+    BCT_CO2        = 0x04       //!< Sensirion  SCD30 CO2 (2018)
 } BC_TYPE;
 
    /*!@brief SENSOR type from config.txt file.
@@ -156,7 +157,9 @@ typedef enum
     SBS_READ_STATUS           = 0x302F32D,  //!< 0xF32D Hex: @see SBS_16_BITS
     SBS_CLEAR_STATUS          = 0x3023041,  //!< 0x3041 Clear status register 
     /* Vishay VCNL4040 */
-    SBS_READ_SERIAL_NUMBER_VCNL    = 0x3020C00,  //!< 0xC000 Serial Number
+    SBS_READ_SERIAL_NUMBER_VCNL = 0x3020C00,  //!< 0xC000 Serial Number
+    /* Sensirion SCD30 C02 */
+    SBS_FIRMWARE_VERSION_CO2    = 0x402D100,  //!< 0xD100 Firmware Version
     END_SBS_CMD,			   //!< End of SBS Command Definitions
 } SBS_CMD;
 
