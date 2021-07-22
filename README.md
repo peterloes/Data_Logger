@@ -31,10 +31,6 @@ CONFIG.TXT:
 
 https://github.com/peterloes/Data_Logger/blob/main/Software/CONFIG.TXT
 
-Handheld Readout Device(HRD) for Sensors:
-
-https://github.com/peterloes/HRD_SENSOR
-
 Schematics:
 
 https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger.sch.pdf
