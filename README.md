@@ -23,7 +23,7 @@ https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hy
 
 https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hyperterminal_4.jpg
 
-Shows SHT31X-D (0x45) and Vishay VCNL4040 (0x60)
+Shows Vishay VCNL4040 (0x60) and SHT31X-D (0x45)
 
 https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hyperterminal_5.jpg
 
