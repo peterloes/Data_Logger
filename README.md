@@ -27,6 +27,10 @@ Shows SHT31X-D (0x45) and Vishay VCNL4040 (0x60)
 
 https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hyperterminal_5.jpg
 
+Shows Vishay VCNL4040 (0x60) and Sensirion SCD30 CO2 (0x61)
+
+https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hyperterminal_6.jpg
+
 CONFIG.TXT:
 
 https://github.com/peterloes/Data_Logger/blob/main/Software/CONFIG.TXT
