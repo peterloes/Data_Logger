@@ -19,6 +19,8 @@ Board Dimensions: 80mm x 60mm
 
 Hyperterminal Screens:
 
+Shows SHT31X-D (0x45) and SHT31X-D (0x45)
+
 https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hyperterminal_3.jpg
 
 https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hyperterminal_4.jpg
