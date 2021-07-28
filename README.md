@@ -25,7 +25,7 @@ https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hy
 
 https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hyperterminal_4.jpg
 
-In operation: 3.2V@2.3mA (without LED's)
+In operation: 3.2V@1.6mA (average without LED's)
 
 Shows Vishay VCNL4040 (0x60) and SHT31X-D (0x45)
 
