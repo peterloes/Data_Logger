@@ -17,7 +17,7 @@ Hardware Design supported:
 
 Board Dimensions: 80mm x 60mm
 
-CONFIG.TXT:
+CONFIG.TXT on SD Card:
 
 https://github.com/peterloes/Data_Logger/blob/main/Software/CONFIG.TXT
 
