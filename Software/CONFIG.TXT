@@ -71,9 +71,13 @@ SENSOR2_TYPE           = HT
 SENSOR1_ON_TIME_1       = 08:00
 SENSOR1_OFF_TIME_1      = 17:00
 #SENSOR1_ON_TIME_2       = 12:00
-#SENSOR1_OFF_TIME_2      = 14:00
-#SENSOR1_ON_TIME_3       = 12:40
-#SENSOR1_OFF_TIME_3      = 12:45
+#SENSOR1_OFF_TIME_2      = 13:00
+#SENSOR1_ON_TIME_3       = 14:00
+#SENSOR1_OFF_TIME_3      = 15:00
+#SENSOR1_ON_TIME_4       = 16:00
+#SENSOR1_OFF_TIME_4      = 17:00
+#SENSOR1_ON_TIME_5       = 18:00
+#SENSOR1_OFF_TIME_5      = 19:00
 
     # Power Cycle Interval for SENSOR1 output [s]
 SENSOR1_INTERVAL        =  120   # 2 min. Interval
@@ -82,11 +86,14 @@ SENSOR1_ON_DURATION     =    5   # 5 sec. Duration(Power On)
     # Operating times for SENSOR2 output [hour:min] 
 SENSOR2_ON_TIME_1       = 08:00
 SENSOR2_OFF_TIME_1      = 17:00
-#SENSOR2_ON_TIME_1       = 12:35
-#SENSOR2_OFF_TIME_1      = 12:40
-#SENSOR2_ON_TIME_1       = 12:45
-#SENSOR2_OFF_TIME_1      = 12:50
-
+#SENSOR2_ON_TIME_2       = 12:00
+#SENSOR2_OFF_TIME_2      = 13:00
+#SENSOR2_ON_TIME_3       = 14:00
+#SENSOR2_OFF_TIME_3      = 15:00
+#SENSOR2_ON_TIME_4       = 16:00
+#SENSOR2_OFF_TIME_4      = 17:00
+#SENSOR2_ON_TIME_5       = 18:00
+#SENSOR2_OFF_TIME_5      = 19:00
 
     # Power Cycle Interval for SENSOR2 output [s]
 SENSOR2_INTERVAL        =  240  # 4 min. Interval
