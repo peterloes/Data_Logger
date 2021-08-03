@@ -6,7 +6,7 @@ and two pulse counters for e.g. Lightbarriers pulses.
 
 Firmware not reviewed.
 
-Hardware Design supported:
+Hardware Design (first draft) supported:
 
 - Sensirion: Humidity and Temperature Sensor SHT3x-DIS
 - Sensirion: CO₂, Humidity and Temperature Sensor SCD30
