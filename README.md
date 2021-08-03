@@ -49,7 +49,7 @@ https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hy
 
 
 Board Power:
- - Lithium Ionen Akkupack 17V@300mA or
+ - Lithium Ionen Akkupack  17V@300mA(maximum) e.g. 12,8V 7,5Ah 96Wh 
  - Coincell CR-2032        3V@225mAh 
 
 Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
@@ -64,4 +64,4 @@ Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
 
 EXTENSIONS
 
-The Data Logger can feature two sensor arrays over 25 meters.
+The Data Logger can features two arrays with different sensors over 25 meters. (sensor-array)
