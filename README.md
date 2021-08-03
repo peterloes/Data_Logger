@@ -61,6 +61,7 @@ Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
  - Vishay: Proximity Sensor and Ambient Light Sensor VCNL 4040: 2.5V@300µA
 
    Similar Software(SensorMon.c): https://github.com/peterloes/HRD_SENSOR
-   
+
+
 
 The standalone Data Logger can feature sensor arrays over 25 meters. :-)
