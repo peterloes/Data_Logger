@@ -64,4 +64,4 @@ Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
 
 EXTENSIONS
 
-The Data Logger can feature two sensor arrays over 25 meters. :-)
+The Data Logger can feature two sensor arrays over 25 meters.
