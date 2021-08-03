@@ -17,18 +17,17 @@ Hardware Design supported:
 
 Board Dimensions: 80mm x 60mm
 
-CONFIG.TXT on SD Card:
-
-https://github.com/peterloes/Data_Logger/blob/main/Software/CONFIG.TXT
-
 Raw data on SD Card:
 
 https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/4_rawdata_BOX0999.TXT
 
+Configuration data on SD Card:
+
+https://github.com/peterloes/Data_Logger/blob/main/Software/CONFIG.TXT
+
 Schematics:
 
 https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger.sch.pdf
-
 
 Hyperterminal Screens:
 
