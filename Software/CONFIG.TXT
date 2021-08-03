@@ -70,14 +70,14 @@ SENSOR2_TYPE           = HT
     # Operating times for SENSOR1 output [hour:min] 
 SENSOR1_ON_TIME_1       = 08:00
 SENSOR1_OFF_TIME_1      = 17:00
-#SENSOR1_ON_TIME_2       = 12:30
-#SENSOR1_OFF_TIME_2      = 12:35
+#SENSOR1_ON_TIME_2       = 12:00
+#SENSOR1_OFF_TIME_2      = 14:00
 #SENSOR1_ON_TIME_3       = 12:40
 #SENSOR1_OFF_TIME_3      = 12:45
 
     # Power Cycle Interval for SENSOR1 output [s]
-SENSOR1_INTERVAL        = 20   # 20 sec. Interval
-SENSOR1_ON_DURATION     =  5   #  5 sec. On Duration
+SENSOR1_INTERVAL        =  120   # 2 min. Interval
+SENSOR1_ON_DURATION     =    5   # 5 sec. Duration(Power On)
 
     # Operating times for SENSOR2 output [hour:min] 
 SENSOR2_ON_TIME_1       = 08:00
@@ -89,15 +89,15 @@ SENSOR2_OFF_TIME_1      = 17:00
 
 
     # Power Cycle Interval for SENSOR2 output [s]
-SENSOR2_INTERVAL        = 30   # 60 sec. Interval
-SENSOR2_ON_DURATION     = 10   # 30 sec. On Duration
+SENSOR2_INTERVAL        =  240  # 4 min. Interval
+SENSOR2_ON_DURATION     =    5  # 5 sec. Duration(Power On)
 
     # Date [YYYYMMDD]
-DAY    = 28  # DD   
-MONTH  = 07  # MM
+DAY    = 03  # DD   
+MONTH  = 08  # MM
 YEAR   = 21  # 20YY
 
     # Time [hh:mm:ss] 
-HOUR   = 14   # set time for useful Operating times!
-MINUTE = 38   # set time for useful Operating times!
+HOUR   = 11   # set time for useful Operating times!
+MINUTE = 47   # set time for useful Operating times!
 SECOND = 00   # skip changes
