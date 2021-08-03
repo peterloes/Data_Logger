@@ -63,6 +63,4 @@ Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
    Similar Software(SensorMon.c): https://github.com/peterloes/HRD_SENSOR
    
 
-The standalone Logger features EFM32 ...the world´s most energy friendly microcontrollers
-
-ARM Cortex-M3 EFM32G230F128
+The standalone Data Logger can feature sensor arrays over 25 meters. :-)
