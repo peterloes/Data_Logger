@@ -84,30 +84,29 @@ Revision History:
  * <b>Keys (Push Buttons)</b><br>
  * There exist 2 push buttons on the board (description of the keys is left to
  * right).  When asserted, the following action will be taken:
- * - <b>POWER</b> button.  It is used to switch the Logger Device on or off (for
- *   switching it off keep the button asserted until the text message
- *   <b>POWER OFF</b> is showed and the red LED is off).  
- *   When pressed for a short time, it shows the firmware version and date, and
- *   sensors for the Data Logger again.  This is useful after a different
- *   sensor has been connected to the Data Logger.
- * - <b>START_STOP</b> key.  It is used to start/stop collecting data from
+ * - <b>POWER</b> key.  It is used to switch the Logger Device ON or off.
+ *   For switching the Logger Device off keep the button asserted until the
+ *   text message DATA LOGGER is off is showed orthe red LED1 is off).  
+ * - <b>START_STOP</b> key. It is used to COLLECT DATA from
  *   the connected sensors keep the button asserted until the text message
- *   <b>Collecting data is off</b> is shown or yellow LED is off.
- *   This key has a auto-repeat functionality when kept asserted.
+ *   <b>COLLECTING DATA is ON</b> is shown or yellow LED2
+ *   is flush triggered ON/off.
+ *   <b>COLLECTING DATA is ON</b> key is switching ON/off
+ *   the red LED1 to save power.    
  *
  * <b>LEDs</b><br>
  * There are two LEDs, one is red, the other one is yellow.
- * - The red LED is the Power-On LED.  It shows the current power state of the
- *   Sensor Logger. In normal condition the red LED will be continued flashing.
- * - The yellow LED is the Log Flush LED.  It flashes whenever data from sensors
- *   are collected.
+ * - The red LED1 is the Power-On LED.  It shows the current power state of the
+ *   Data Logger. In normal condition the red LED1 will be continues ON before
+ *   Button START_STOP will switch the red LED1 off to save power!  
+ * - The yellow LED2 is the Log Flush LED. It shows Collecting Data is ON and
+ *   it lights whenever there are write accesses to SD-Card.
  *
  * <b>Battery Monitor</b><br>
- * Rechargeable power pack or the coincell battery CR2032 is powering
+ * A rechargeable Power pack or the Coincell battery CR2032 is powering
  * the connected EFM32 microcontroller. This module provides function ReadVdd()
- * to read the voltage of the microcontroller configure by PD1
- * to hold power on a regular basis.
- * i.e. every BAT_MON_INTERVAL.
+ * to read the voltage of the microcontroller configure by PD1 to hold power
+ * on a regular basis. i.e. every BAT_MON_INTERVAL.
  *
  * <b>Firmware</b><br>
  * The firmware consists of an initialization part and a main loop, also called
@@ -168,14 +167,13 @@ Revision History:
 #include "em_cmu.h"
 #include "em_emu.h"
 #include "config.h"		// include project configuration parameters
+#include "AlarmClock.h"
+#include "CfgData.h"
 #include "ExtInt.h"
 #include "Keys.h"
-#include "AlarmClock.h"
 #include "LEUART.h"
-#include "SensorMon.h"
 #include "Logging.h"
-#include "CfgData.h"
-#include "Control.h"
+#include "SensorMon.h"
 #include "Update.h"
 
 #include "ff.h"		// FS_FAT12/16/32
@@ -241,7 +239,6 @@ static const KEY_INIT  l_KeyInit =
     .KeyFct	= UpdateKeyHandler
 };
 
-
 /* Return code for CMU_Select_TypeDef as string */
 static const char *CMU_Select_String[] =
 { "Error", "Disabled", "LFXO", "LFRCO", "HFXO", "HFRCO", "LEDIV2", "AUXHFRCO" };
@@ -250,7 +247,6 @@ static const char *CMU_Select_String[] =
 
 static void cmuSetup(void);
 static void Reboot(void);
-
 
 /******************************************************************************
  * @brief  Main function
@@ -518,18 +514,4 @@ void	ShowPowerLogger_LED1 (bool enable)
 {
     /* Set once after Pushbutton1 is assert or release */  
     POWER_LED = enable;
-}
-
-
-/******************************************************************************
- * @brief   Shows the ShowDataCollect LED2
- *
- * This routine is called by the UpdateCheck to indicate the current state
- * of the LED2 DATA COLLECT is ON (LED2 on) or is off(LED2 off).
- *
- *****************************************************************************/
-void	ShowDataCollect_LED2 (bool enable)
-{
-    /* Set once after Pushbutton2 is assert or release */  
-    LOG_FLUSH_LED = enable;
 }

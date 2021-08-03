@@ -2,13 +2,15 @@
  * @file
  * @brief	Project configuration file
  * @author	Ralf Gerhauser
- * @version	2016-02-27
+ * @version	2020-05-12
  *
  * This file allows to set miscellaneous configuration parameters.  It must be
  * included by all modules.
  *
  ****************************************************************************//*
 Revision History:
+2020-05-12,rage	Use defines XXX_POWER_ALARM instead of ENUMs.
+		Power Alarms are grouped in ON and OFF alarms now.
 2016-02-26,rage	Increased LOG_BUF_SIZE to 4KB.
 2016-02-10,rage	Set DFLT_RFID_POWER_OFF_TIMEOUT to 6 minutes.
 2014-11-11,rage	Derived from project "AlarmClock".
@@ -46,9 +48,9 @@ Revision History:
 #define POWER_LED_PIN		2
     /*! @brief Macro to set or clear the Power-LED */
 #define POWER_LED   IO_Bit(GPIO->P[POWER_LED_PORT].DOUT, POWER_LED_PIN)
-    /*!@brief GPIO Port of the (green) Log Flush LED. */
+    /*!@brief GPIO Port of the (yellow) Log Flush LED. */
 #define LOG_FLUSH_LED_PORT	gpioPortA
-    /*!@brief GPIO Pin of the (green) Log Flush LED is PA5. */
+    /*!@brief GPIO Pin of the (yellow) Log Flush LED is PA5. */
 #define LOG_FLUSH_LED_PIN	5		//! State: 0=OFF, 1=ON
     /*! @brief Macro to set or clear the Log Flush LED */
 #define LOG_FLUSH_LED IO_Bit(GPIO->P[LOG_FLUSH_LED_PORT].DOUT, LOG_FLUSH_LED_PIN)
@@ -71,14 +73,16 @@ Revision History:
 /*!
  * @brief Interrupt Priority Settings
  *
- * There are 8 priority levels 0 to 7 with 0 to be the highest and 7 to be the
- * lowest priority.  DCF77 (which is called from the EXTI handler) and RTC must
- * use the same priority level to lock-out each other, because they both use
- * function localtime() and this is not multithreading save.  Funktion
- * localtime_r() would be the right choice here, unfortunately it is not
- * available with the IAR compiler library.
+ * There are 8 priority levels 0 to 7 with 0 to be the highest and 7 to be
+ * the lowest priority.  ADC measurement requires high priority, otherwise
+ * data gets lost.  DCF77 (which is called from the EXTI handler) and RTC
+ * must use the same priority level to lock-out each other, because they
+ * both use function localtime() and this is not multithreading save.
+ * Funktion localtime_r() would be the right choice here, unfortunately it
+ * is not available with the IAR compiler library.
  */
-#define INT_PRIO_UART	2		//!< UART interrupts for the RFID reader
+#define INT_PRIO_ADC	0		//!< ADC has highest priority
+#define INT_PRIO_UART	2		//!< UART interrupts
 #define INT_PRIO_LEUART	2		//!< LEUART RX interrupt (not used)
 #define INT_PRIO_DMA	2		//!< DMA is used for LEUART
 #define INT_PRIO_SMB	2		//!< SMBus used by the battery monitor
@@ -94,7 +98,7 @@ Revision History:
     /*! Time in [ms] a key needs to be asserted to start autorepeat. */
 #define AUTOREPEAT_THRESHOLD	750
     /*! Rate in [ms] the autorepeat feature repeats the previous key. */
-#define AUTOREPEAT_RATE		250
+#define AUTOREPEAT_RATE		100
 
 /*
  * Configuration for module "Logging"
@@ -205,6 +209,8 @@ typedef struct
  * This is the list of Alarm IDs used by this application.  They are used to
  * identify a particular alarm time entry via the <b>alarmNum</b> parameter
  * when calling alarm functions, e.g. AlarmSet().
+ * The configurable Power Alarms must be grouped in ON and OFF alarms to be able
+ * to use a single index for all, see CheckAlarmTimes() and AlarmPowerControl().
  */
 typedef enum
 {
@@ -267,7 +273,7 @@ typedef enum
  */
 typedef enum
 {
-    EM1_MOD_XXX,	//!<  0: Example enum, this project always used EM2
+    EM1_MOD_ADC,	//!<  1: ADC is a HFPER clock device
     END_EM1_MODULES
 } EM1_MODULES;
 
