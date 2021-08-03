@@ -62,6 +62,6 @@ Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
 
    Similar Software(SensorMon.c): https://github.com/peterloes/HRD_SENSOR
 
-
+EXTENSIONS
 
 The standalone Data Logger can feature sensor arrays over 25 meters. :-)
