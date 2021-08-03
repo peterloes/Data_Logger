@@ -39,6 +39,10 @@ CONFIG.TXT:
 
 https://github.com/peterloes/Data_Logger/blob/main/Software/CONFIG.TXT
 
+Raw data on SD Card:
+
+https://github.com/peterloes/RFID-MS/blob/master/Getting_Started_Tutorial/6_rawdata_BOX0001.TXT
+
 Schematics:
 
 https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger.sch.pdf
