@@ -98,6 +98,6 @@ MONTH  = 08  # MM
 YEAR   = 21  # 20YY
 
     # Time [hh:mm:ss] 
-HOUR   = 11   # set time for useful Operating times!
-MINUTE = 47   # set time for useful Operating times!
+HOUR   = 12   # set time for useful Operating times!
+MINUTE = 08   # set time for useful Operating times!
 SECOND = 00   # skip changes
