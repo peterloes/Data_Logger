@@ -368,11 +368,8 @@ int8_t	on_hour, on_min, off_hour, off_min;
            Log ("- Alarm %d SENSOR2(%02d:%02d - %02d:%02d) is ON",
 		 i+1, on_hour, on_min, off_hour, off_min);
            }
-           
-           
 #endif
-           
-	    l_Alarm[alarm_on].Function (alarm_on);
+           l_Alarm[alarm_on].Function (alarm_on);
 	}
 	else
 	{

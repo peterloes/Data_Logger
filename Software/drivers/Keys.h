@@ -42,7 +42,7 @@ Revision History:
 #define KEY_START_STOP_PIN	3
 
 /*!@brief Bit mask of all affected external interrupts (EXTIs). */
-#define KEY_EXTI_MASK	( (1 << KEY_POWER_PIN) | (1 << KEY_START_STOP_PIN))
+#define KEY_EXTI_MASK	((1 << KEY_POWER_PIN) | (1 << KEY_START_STOP_PIN))
 
 /*=========================== Typedefs and Structs ===========================*/
 

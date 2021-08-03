@@ -341,13 +341,15 @@ bool   isDiskRemoved;
     *l_PwrOutDef[output].BitBandAddr = enable;
     
     /* Data Collection is off and Disk is not removed */ 
-    if(!isDataCollectOn && !isDiskRemoved)
+    if(!isDataCollectOn || isDiskRemoved)
        return;   
     
 #ifdef LOGGING
     Log ("Power Output %s %sabled",
    	 g_enum_PowerOutput[output], enable ? "en":"dis");
 #endif
+    
+    g_flgIRQ = true;	// keep on running
    
     /* Data Collection is off and Disk is not removed */ 
 //    if(!isDataCollectOn && !isDiskRemoved)
@@ -377,12 +379,13 @@ bool   isDiskRemoved;
  *****************************************************************************/
 bool	IsPowerOutputOn (PWR_OUT output)
 {
-    /* Parameter check */
+  /* Parameter check */
     if (output == PWR_OUT_NONE)
 	return false;	// power output not assigned, return false (off)
 
-    EFM_ASSERT (PWR_OUT_SENSOR1 <= output  &&  output <= PWR_OUT_SENSOR2);
-
+    EFM_ASSERT (PWR_OUT_UA1 <= output  &&  output <= PWR_OUT_UA2);
+ 
+    
     /* Determine the current state of this power output */
     return (*l_PwrOutDef[output].BitBandAddr ? true : false);
 }
@@ -461,16 +464,12 @@ PWR_OUT	 pwrOut;
 int	 pwrState;
 
   /*!@brief data collect is activate. */
-//bool   isDataCollectOn;	
-//bool   isDiskRemoved;
+bool   isDataCollectOn;	
+bool   isDiskRemoved;
 
     /* Get current state of DataCollectOn (PB2 is ON) */
-  //  isDataCollectOn = IsDataCollectOn();
-   // isDiskRemoved = IsDiskRemoved(); 
-
-   /* Data Collection is off and Disk is not removed */ 
-  // if(!isDataCollectOn && !isDiskRemoved)
-   //   return; 
+    isDataCollectOn = IsDataCollectOn();
+    isDiskRemoved = IsDiskRemoved(); 
 
     /* Determine Power Output */
     if (hdl == l_hdlPwrInterval[PWR_OUT_SENSOR1])
@@ -505,6 +504,11 @@ int	 pwrState;
 	pwrState = PWR_ON;
 	sTimerStart(l_hdlPwrInterval[pwrOut], g_On_Duration[pwrOut]);
     }
+
+    /* Data Collection is off and Disk is not removed */ 
+    if(!isDataCollectOn && !isDiskRemoved)
+       return;
+    
    
     /* Standard Power Output - call PowerOutput() directly */
     PowerOutput (pwrOut, pwrState);

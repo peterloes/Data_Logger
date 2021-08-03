@@ -30,7 +30,6 @@ Revision History:
 #include "Update.h"
 #include "SensorMon.h"
 #include "Logging.h"
-#include "microsd.h"
 
 
 /*=============================== Definitions ================================*/
@@ -41,20 +40,19 @@ Revision History:
 
 /*=============================== External Data ==============================*/
 
-    /* external routine to switch Data collecting LED2 on or off */
-extern void ShowDataCollect_LED2 (bool enable);
-
     /* external routine to switch Power Logger LED1 on or off */
 extern void ShowPowerLogger_LED1 (bool enable);
 
 /*================================ Local Data ================================*/
 
     /*!@brief Flag to trigger Power Off. */
-static volatile bool	 l_flgPowerOff;
+static volatile bool    l_flgPowerOff = false;
 
-    /*!@brief Flag to trigger Sensor Controller Probing. */
-static volatile bool	 l_flgSensorPowerOff = false;
+static volatile bool    flgPowerOffActive = true;
 
+    /*!@brief Flag to trigger Power Collecting Data off. */
+static volatile bool	 l_flgSensorPowerOff = true;
+ 
 /*!@brief Current state if collecting data: true means ON, false mean OFF. */
 static volatile bool	 l_flgDataCollectIsOn;
 
@@ -101,26 +99,21 @@ void	UpdateKeyHandler (KEYCODE keycode)
     switch (keycode)
     {
 	case KEYCODE_POWER_ASSERT:	// POWER was asserted
-             l_flgPowerOff = true;
              break;
          
 	case KEYCODE_POWER_REPEAT:	// repeated device POWER was asserted
-             l_flgPowerOff = false;
+             /* Note: l_flgPowerOff is set below */ 
              break;		 
           
 	case KEYCODE_START_STOP_ASSERT:	// START_STOP was asserted
-             l_flgSensorPowerOff = true;
-             /* Note: l_flgSensorPowerOff is set below */ 
              break;	
              
 	case KEYCODE_START_STOP_REPEAT:	// repeated START_STOP was asserted
-             l_flgSensorPowerOff = false;
+             /* Note: l_flgSensorPowerOff is set below */ 
              break;
 
 	case KEYCODE_POWER_RELEASE:	 // POWER was released
-             //Log ("POWER_RELEASE/n/n");
         case KEYCODE_START_STOP_RELEASE: // START_STOP was released
-             //Log ("START_STOP_RELEASE");
           
            return;
             
@@ -129,7 +122,10 @@ void	UpdateKeyHandler (KEYCODE keycode)
     }
     
     /* POWER_REPEAT should switch the device off (when button is released) */
-   // l_flgPowerOff = (keycode == KEYCODE_POWER_REPEAT ? true : false);
+    l_flgPowerOff = (keycode == KEYCODE_POWER_REPEAT ? true : false);
+    
+     /* START_STOP_REPEAT should switch collecting data off (when button is released) */
+    l_flgSensorPowerOff = (keycode == KEYCODE_START_STOP_REPEAT ? true : false);
 }
 
     
@@ -151,45 +147,40 @@ void	UpdateCheck (void)
 {
 static bool flgPowerOffActive;
 static bool flgSensorPowerOffActive;
-static bool isDiskRemoved;
-
        
     /*
      * Check if Data Logger should be powered off.
      */
     if (l_flgPowerOff)
     {
-        if(! flgPowerOffActive)
+        if(flgPowerOffActive)
         {  
-            flgPowerOffActive = true;
+            flgPowerOffActive = false;
             Log ("DATA LOGGER is off");
-           
-            /*  Switch red LED1 on */  
+            msDelay(200);
+            
+            /*  Switch red LED1 off */  
             ShowPowerLogger_LED1 (false);
             SET_POWER_PIN(0);	// set FET input to HIGH
-         }
-        return;    // INHIBIT ALL OTHER ACTIONS
+            return;    // INHIBIT ALL OTHER ACTIONS
+        }
     } 
     else
     {
-	if (flgPowerOffActive)
+	if (! flgPowerOffActive)
 	{
-	    flgPowerOffActive = false;
-           
+	    flgPowerOffActive = true;
             Log ("DATA LOGGER is ON");
             
-            /*  Switch yellow LED2 on */ 
+            /*  Switch red LED1 ON */  
             ShowPowerLogger_LED1 (true);
-            SET_POWER_PIN(1);	// set FET input to HIGH
-       	}
+            SET_POWER_PIN(1);	// set FET input to HIGH 
+     	}
     }
     
     /*
-     * Check if the SensorPower be powered off.
-     * Collecting Data is ON or off.
-     * VDD_SENSOR1 and VDD_SENSOR2
-     * Read microcontroller voltage
-     * Sensor Controller routine should be called (again).
+     * Key START_STOP is pressed and collecting data is set.
+     * l_flgDataCollectIsOn is active.
      */
  
     if (l_flgSensorPowerOff)
@@ -197,38 +188,25 @@ static bool isDiskRemoved;
         if (! flgSensorPowerOffActive)
 	{
 	    flgSensorPowerOffActive = true;
+            Log ("COLLECTING DATA is ON");              
             
-            Log ("COLLECTING DATA is off");
-           
-            /*  Switch yellow LED2 off */ 
-            ShowDataCollect_LED2 (false);
-            
-            l_flgDataCollectIsOn = false;
-            
-            msDelay(200);
-       }
+            /* Switch red LED1 off */ 
+            ShowPowerLogger_LED1 (false);
+            l_flgDataCollectIsOn = true;
+        }
     }
     else
     {
 	if (flgSensorPowerOffActive)
 	{
 	    flgSensorPowerOffActive = false;
-            Log ("COLLECTING DATA is ON");              
-     	
-            /*  Switch yellow LED2 on */ 
-            ShowDataCollect_LED2 (true);
+                 
+            Log ("COLLECTING DATA is off");
             
-            l_flgDataCollectIsOn = true;
-      	}
-    }
- 
-    /* Refresh flag isDiskRemoved */ 
-    isDiskRemoved = IsDiskRemoved(); 
- 
-    if(l_flgDataCollectIsOn && isDiskRemoved)
-    {  
-        l_flgSensorPowerOff = true;  
-        flgSensorPowerOffActive = false;
+            /* Switch red LED1 ON */ 
+            ShowPowerLogger_LED1 (true);
+            l_flgDataCollectIsOn = false;
+     	}
     }
 }
 

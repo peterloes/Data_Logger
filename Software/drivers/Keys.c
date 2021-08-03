@@ -57,7 +57,7 @@ typedef enum
 static const KEY_INIT *l_pKeyInit;
 
     /*! Variable to keep current key state */
-static volatile KEY_STATE	l_KeyState = KEY_IDLE;
+static  KEY_STATE	l_KeyState = KEY_IDLE;
 
     /*! Variable to keep autorepeat key code */
 static KEYCODE	     l_KeyCode;

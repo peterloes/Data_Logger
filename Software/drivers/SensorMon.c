@@ -3,7 +3,6 @@
  * @brief	Sensor Monitoring
  * @author	Peter Loes
  * @version	2021-05-03
- *
  * This module can be used to read status information from the sensor sht31-d
  * (sensirion) via its SMBus interface. It also provides function 
  * ReadVdd() to read the voltage of the local supply battery.
@@ -73,9 +72,9 @@ Revision History:
 #include "em_adc.h"
 #include "AlarmClock.h"		// msDelay()
 #include "LEUART.h"
-#include "SensorMon.h"
 #include "Logging.h"
 #include "microsd.h"
+#include "SensorMon.h"
 
 /*=============================== Definitions ================================*/
 
@@ -257,7 +256,8 @@ static void	ADC_Config(void);
  ******************************************************************************/
 void	 Sensor1MonInit (void)
 {
-bool   isDataCollectOn;	 ///data collect is activate
+  /*!@brief data collect is activate. */
+bool   isDataCollectOn;	
   
     /* Be sure to enable clock to GPIO (should already be done) */
     CMU_ClockEnable (cmuClock_GPIO, true);
@@ -312,10 +312,11 @@ bool   isDataCollectOn;	 ///data collect is activate
     l_BatInfo.Req_1 = l_BatInfo.Req_2 = SBS_NONE;
 
  
-    /* Get current state COLLECTING DATA is ON or off */
+    /* Get current state of DataCollectOn (PB2 is ON) */
     isDataCollectOn = IsDataCollectOn();
-    
-    if (!isDataCollectOn)
+
+    /* Data Collection is off */ 
+    if(!isDataCollectOn)
     { 
        /* Build new structure based on the configuration variables */
        l_pSENSOR_Cfg.SENSOR1_Type   = g_SENSOR1_Type;
@@ -355,7 +356,7 @@ bool   isDataCollectOn;	 ///data collect is activate
   
         Log ("COLLECT DATA with Button 2 ");
     }
-    
+  
 }
 
 /***************************************************************************//**
@@ -415,23 +416,32 @@ bool   isDataCollectOn;	 ///data collect is activate
 void	 SensorMonDeinit (void)
 {
     /* Set Power Enable Pin for the SENSOR receiver to OFF */
-    PowerOutput (l_pSENSOR_Cfg.SENSOR_PwrOut, PWR_OFF);
+    //PowerOutput (l_pSENSOR_Cfg.SENSOR_PwrOut, PWR_OFF);    
+    
+    /* Disable interrupt in ADC and NVIC */
+    ADC0->IEN = 0;
+    NVIC_DisableIRQ(ADC0_IRQn);
     
     /* Make sure conversion is not in progress */
     ADC0->CMD = ADC_CMD_SINGLESTOP | ADC_CMD_SCANSTOP;
 
+    /* Reset ADC */
+    ADC_Reset (ADC0);
+
+    /* Disable clock for ADC */
+    CMU_ClockEnable(cmuClock_ADC0, false);
+        
+    /* ADC is no longer active, clear bit in bit mask */
+    Bit(g_EM1_ModuleMask, EM1_MOD_ADC) = 0;
+    
     /* Disable SMBus interrupt */
     NVIC_DisableIRQ (SMB_IRQn);
 
     /* Reset SMBus controller */
     I2C_Reset (SMB_I2C_CTRL);
 
-    /* Reset ADC */
-    ADC_Reset (ADC0);
-
-    /* Disable clock for I2C controller and ADC */
+    /* Disable clock for I2C controller */
     CMU_ClockEnable(SMB_I2C_CMUCLOCK, false);
-    CMU_ClockEnable(cmuClock_ADC0, false);
     
     /* Reset variables */
     g_SensorCtrlAddr = 0x00;
@@ -1029,13 +1039,14 @@ void	LogSensorInfo (BAT_LOG_INFO_LVL infoLvl)
             
            /* De-Initialize the Sensor1 monitoring module */
            SensorMonDeinit ();
-           
-           /* Initialize the Sensor2 monitoring module */
-           Sensor2MonInit();
+        
+          /* Initialize the Sensor2 monitoring module */
+          Sensor2MonInit();
     }
        
     if (infoLvl == BAT_LOG_INFO_SHORT2)// Read by Bat_Alarm??
     {
+    
         /* Check if the Sensor Probe routine should be called (again) */
         if (l_flgSensorCtrlProbe)
         { 
@@ -1344,6 +1355,8 @@ static void ADC_Config(void)
 ADC_Init_TypeDef       init       = ADC_INIT_DEFAULT;
 ADC_InitSingle_TypeDef singleInit = ADC_INITSINGLE_DEFAULT;
 
+    /* ADC requires EM1, set bit in bit mask */
+    Bit(g_EM1_ModuleMask, EM1_MOD_ADC) = 1;
 
     /* Enable clock for ADC */
     CMU_ClockEnable(cmuClock_ADC0, true);
@@ -1371,6 +1384,13 @@ ADC_InitSingle_TypeDef singleInit = ADC_INITSINGLE_DEFAULT;
     singleInit.acqTime = adcAcqTime32;
 
     ADC_InitSingle(ADC0, &singleInit);
+    
+    /* Enable interrupt for Scan Mode in ADC and NVIC */
+    NVIC_SetPriority(ADC0_IRQn, INT_PRIO_ADC);
+    ADC0->IEN = ADC_IEN_SCAN;
+    NVIC_EnableIRQ(ADC0_IRQn);
+    
+    
 }
 
 
