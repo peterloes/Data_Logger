@@ -55,7 +55,7 @@ Board Power:
 
 Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
 
- - Sensirion: Humidity and Temperature Sensor SHT3x-DIS:        2.2v@200µA
+ - Sensirion: Humidity and Temperature Sensor SHT3x-DIS:        3.3V@600µA
 
  - Sensirion: CO₂, Humidity and Temperature Sensor SCD30:       3.3V@ max.75mA
 
