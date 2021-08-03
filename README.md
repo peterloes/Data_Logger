@@ -4,7 +4,7 @@ A standalone Platform to get environmental impact around Organisms.(Animals)
 Enable long-term environmental observations of different selectable sensors (I2C Interfaces)
 and two pulse counters for e.g. Lightbarriers pulses.
 
-Firmware working process not finished. Firmware not reviewed.
+Firmware not reviewed.
 
 Hardware Design supported:
 
