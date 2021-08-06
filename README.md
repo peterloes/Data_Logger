@@ -62,6 +62,10 @@ Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
 
    Similar Software(SensorMon.c): https://github.com/peterloes/HRD_SENSOR
 
+Optional components:
+
+https://github.com/peterloes/Clock_receiver_RFID-MS_MOMO_TAMDL
+
 EXTENSIONS
 
 The Data Logger can feature two arrays with different sensors over 25 meters. (sensor-array x 2)
