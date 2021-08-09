@@ -383,7 +383,7 @@ bool	IsPowerOutputOn (PWR_OUT output)
     if (output == PWR_OUT_NONE)
 	return false;	// power output not assigned, return false (off)
 
-    EFM_ASSERT (PWR_OUT_UA1 <= output  &&  output <= PWR_OUT_UA2);
+    EFM_ASSERT (PWR_OUT_SENSOR1 <= output  &&  output <= PWR_OUT_SENSOR2);
  
     
     /* Determine the current state of this power output */

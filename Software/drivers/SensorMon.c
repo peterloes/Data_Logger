@@ -929,7 +929,7 @@ int		 d, h, m;	// FRMT_DURATION: days, hours, minutes
                // combine the two bytes to a 16-bit value
                data1 = (dataBuf[3] << 8) | dataBuf[4];
                float rh = ((float)data1 / 65535.0f) * 100.0f;
-               sprintf (strBuf, "%04.02f %RH", rh);
+               sprintf (strBuf, "%04.02f RH", rh);
             }
             break;
 
