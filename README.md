@@ -66,6 +66,9 @@ Optional components:
 
 https://github.com/peterloes/Clock_receiver_RFID-MS_MOMO_TAMDL
 
-EXTENSIONS
+https://github.com/peterloes/Booter_RFID-MS_MOMO_TAMDL
+
+
+Outlook:
 
 The Data Logger can feature two arrays with different sensors over 25 meters. (sensor-array x 2)
