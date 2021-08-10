@@ -36,7 +36,7 @@ https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hy
 
 https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hyperterminal_4.jpg
 
-In operation: 3.2V@1.3mA
+In operation with Interval (configuration.txt) : 3.2V@0.54mA
 
 Shows Vishay VCNL4040 (0x60) and SHT31X-D (0x45)
 
