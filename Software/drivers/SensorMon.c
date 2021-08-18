@@ -979,9 +979,9 @@ void	LogSensorInfo (BAT_LOG_INFO_LVL infoLvl)
     
     if (infoLvl == BAT_LOG_ONLY)
     {
-      /* Read microcontroller voltage */
+       /* Read microcontroller voltage */
        Log ("VOLTAGE Minimum 2.8V <= %s",
-         ItemDataString(SBS_NONE, FRMT_VDD));
+       ItemDataString(SBS_NONE, FRMT_VDD));
     }
   
     if (infoLvl == BAT_LOG_INFO_SHORT1)// Read by Bat_Alarm
@@ -1256,7 +1256,7 @@ static bool isDiskRemoved;
 	l_flgBatMonTrigger = false;
 
 	/* Log verbose information, if Battery Pack has changed */
-	LogSensorInfo (BAT_LOG_INFO_SHORT1);
+	LogSensorInfo (BAT_LOG_ONLY);
     }
 }
 
@@ -1388,9 +1388,7 @@ ADC_InitSingle_TypeDef singleInit = ADC_INITSINGLE_DEFAULT;
     /* Enable interrupt for Scan Mode in ADC and NVIC */
     NVIC_SetPriority(ADC0_IRQn, INT_PRIO_ADC);
     ADC0->IEN = ADC_IEN_SCAN;
-    NVIC_EnableIRQ(ADC0_IRQn);
-    
-    
+    NVIC_EnableIRQ(ADC0_IRQn);  
 }
 
 
