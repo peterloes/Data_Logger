@@ -52,7 +52,7 @@ https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hy
 
 Board Power:
  - Lithium Ionen Akkupack  17V@300mA(maximum) e.g. 12,8V 7,5Ah 96Wh 
- - Coincell CR-2032        3V@225mAh 
+ - LS14250 Primary Lithium-Thionyl chloride    3.6V@1200mAh 
 
 Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
 
