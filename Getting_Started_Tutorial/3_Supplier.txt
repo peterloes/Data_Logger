@@ -4,7 +4,7 @@ Lithium Ionen rechargeable battery pack Art.Nr. 60.16294 Panasonic NCR 18650GA 4
 DYNAMIS Batterien GmbH
 Josef Pfeil
 
-Br¸hlstraﬂe 15  D- 78465 Dettingen / Konstanz
+Br√ºhlstra√üe 15  D- 78465 Dettingen / Konstanz
 Tel. +49 (0) 75 33/93 669-15
 mailto:josef.pfeil@dynamis-batterien.de
 www.dynamis-batterien.de
@@ -28,3 +28,10 @@ https://www.leiterplatten-muenchen.de/
 
 FTDI Chip cable (3.5mm Audio Jack to USB)
 TTL-232R-3V3-AJ
+
+
+
+https://de.rs-online.com/
+Battery holder with cable
+RS PRO Batteriehalter mit Drahtanschluss 1/2 AA Batterien
+RS Best.-Nr.: 185-4655
