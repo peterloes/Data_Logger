@@ -72,3 +72,11 @@ https://github.com/peterloes/Booter_RFID-MS_MOMO_TAMDL
 Outlook:
 
 The Data Logger can feature two arrays with different sensors over 25 meters. (sensor-array x 2)
+
+
+
+C is the Greenest Programming Language
+
+To achieve its power and energy-efficiency features, EFM32 products utilize ultralow active and idle power,
+fast wakeup and processing times, and most important, the ability to intelligently interact with peripherals
+and sensors autonomously without waking up the CPU and consuming more power. 
