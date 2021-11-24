@@ -6,6 +6,8 @@ and two pulse counters for e.g. Lightbarriers pulses.
 
 Authors: Loës P., Kempenaers B.(2021) [![DOI](https://zenodo.org/badge/360805367.svg)](https://zenodo.org/badge/latestdoi/360805367)
 
+Firmware not reviewed.
+
 Hardware Design (first draft) supported:
 
 - Sensirion: Humidity and Temperature Sensor SHT3x-DIS
