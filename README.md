@@ -51,16 +51,16 @@ https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hy
 
 
 Board Power:
- - Lithium Ionen Akkupack  17V@300mA(maximum) e.g. 12,8V 7,5Ah 96Wh 
- - LS14250 Primary Lithium-Thionyl chloride    3.6V@1200mAh 
+ - Lithium Ionen Akkupack  17V/300mA(maximum) e.g. 12,8V 7,5Ah 96Wh 
+ - LS14250 Primary Lithium-Thionyl chloride    3.6V/1200mAh 
 
 Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
 
- - Sensirion: Humidity and Temperature Sensor SHT3x-DIS:        3.3V@600µA
+ - Sensirion: Humidity and Temperature Sensor SHT3x-DIS:        600µA@3.3V
 
- - Sensirion: CO₂, Humidity and Temperature Sensor SCD30:       3.3V@ max.75mA
+ - Sensirion: CO₂, Humidity and Temperature Sensor SCD30:     max.75mA@3.3V 
 
- - Vishay: Proximity Sensor and Ambient Light Sensor VCNL 4040: 2.5V@300µA
+ - Vishay: Proximity Sensor and Ambient Light Sensor VCNL 4040: 300µA@2.5V
 
    Similar Software(SensorMon.c): https://github.com/peterloes/HRD_SENSOR
 
