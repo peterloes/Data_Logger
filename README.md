@@ -1,6 +1,6 @@
 # Next generation of data logger for varied range support of sensors.
 
-A standalone Platform to get environmental impact around Organisms (Animals).
+A standalone platform to get environmental impact around organisms (animals).
 Enable long-term observations of different selectable sensors (I2C Interfaces).
 Two pulse counters are included to get lightbarrier activity.
 
