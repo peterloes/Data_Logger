@@ -15,10 +15,9 @@ Authors: Loës P., Kempenaers B.(2021) [![DOI](https://zenodo.org/badge/36080536
 - Activation times(x5) for data logging.
 
 
-The following firmware is not reviewed.
-
-
 ## Hardware Design (first draft) supported:
+
+The following firmware is not reviewed.
 
 - Sensirion: Humidity and Temperature Sensor SHT3x-DIS
 - Sensirion: CO₂, Humidity and Temperature Sensor SCD30
