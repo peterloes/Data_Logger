@@ -60,7 +60,8 @@ Shows Vishay VCNL4040 (0x60) and Sensirion SCD30 CO2 (0x61)
 https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hyperterminal_6.jpg
 
 
-Board Power:
+## Board Power
+
  - Lithium battery  17V/300mA(maximum) e.g. 12,8V 7,5Ah 96Wh 
  - LS14250 Primary Lithium-Thionyl chloride    3.6V/1200mAh 
 
