@@ -6,7 +6,7 @@ Two pulse counters are included to get lightbarrier activity.
 
 Authors: Loës P., Kempenaers B.(2021) [![DOI](https://zenodo.org/badge/360805367.svg)](https://zenodo.org/badge/latestdoi/360805367)
 
-Main advantages against other data logger:
+## Main advantages against other data logger:
 
 - Available sensors can be freely combined as requrired.(Firmware adaption)
 - Daily regular synchronisation from date and time with DCF77 radio clock receiver.(Firmware adaption)
@@ -17,7 +17,8 @@ Main advantages against other data logger:
 
 The following firmware is not reviewed.
 
-Hardware Design (first draft) supported:
+
+## Hardware Design (first draft) supported:
 
 - Sensirion: Humidity and Temperature Sensor SHT3x-DIS
 - Sensirion: CO₂, Humidity and Temperature Sensor SCD30
@@ -40,7 +41,8 @@ Schematics:
 
 https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger.sch.pdf
 
-Hyperterminal Screens:
+
+## Hyperterminal Screens
 
 Shows SHT31X-D (0x45) and SHT31X-D (0x45)
 
