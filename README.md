@@ -12,7 +12,7 @@ Authors: Loës P., Kempenaers B.(2021) [![DOI](https://zenodo.org/badge/36080536
 - Daily regular synchronisation from date and time with DCF77 radio clock receiver.(Firmware adaption)
 - Long battery life with lithium battery. (max.17V)
 - SD Card includes configuration file.
-- Activation times(x5) for data logging.
+- Activation times for sensors (x5) to collect data.
 
 
 ## Hardware Design (first draft) supported:
