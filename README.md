@@ -9,7 +9,7 @@ Authors: Loës P., Kempenaers B.(2021) [![DOI](https://zenodo.org/badge/36080536
 Main advantages against other data logger:
 
 - Available sensors can be freely combined as requrired.(Firmware adaption)
-- Daily regular synchronisation from date and time.(Firmware adaption)
+- Daily regular synchronisation from date and time with DCF77 radio clock receiver.(Firmware adaption)
 - Long battery life.
 
 The following firmware is not reviewed.
