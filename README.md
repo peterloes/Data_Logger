@@ -39,7 +39,7 @@ https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hy
 
 https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hyperterminal_4.jpg
 
-In operation with Interval (configuration.txt) : 3.2V@0.54mA
+In operation with Interval (configuration.txt) : 3,2V@0,54mA
 
 Shows Vishay VCNL4040 (0x60) and SHT31X-D (0x45)
 
@@ -56,11 +56,11 @@ Board Power:
 
 Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
 
- - Sensirion: Humidity and Temperature Sensor SHT3x-DIS:        600µA@3.3V
+ - Sensirion: Humidity and Temperature Sensor SHT3x-DIS:        600µA@3,3V
 
- - Sensirion: CO₂, Humidity and Temperature Sensor SCD30:     max.75mA@3.3V 
+ - Sensirion: CO₂, Humidity and Temperature Sensor SCD30:     max.75mA@3,3V 
 
- - Vishay: Proximity Sensor and Ambient Light Sensor VCNL 4040: 300µA@2.5V
+ - Vishay: Proximity Sensor and Ambient Light Sensor VCNL 4040: 300µA@2,5V
 
    Similar Software(SensorMon.c): https://github.com/peterloes/HRD_SENSOR
 
