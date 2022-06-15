@@ -40,6 +40,10 @@ Schematics:
 
 https://github.com/peterloes/Data_Logger/blob/main/Schematics/Logger.sch.pdf
 
+Housing:
+
+https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/11_Electronic_housing.jpg
+
 
 ## Hyperterminal Screens
 
