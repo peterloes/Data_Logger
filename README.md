@@ -6,6 +6,12 @@ and two pulse counters for e.g. Lightbarriers pulses.
 
 Authors: Loës P., Kempenaers B.(2021) [![DOI](https://zenodo.org/badge/360805367.svg)](https://zenodo.org/badge/latestdoi/360805367)
 
+Main advantages against other data logger:
+
+- Available sensors can be freely combined as requrired.(Firmware adaption)
+- Daily regular synchronisation from date and time.(Firmware adaption)
+- Long battery life.
+
 Firmware not reviewed.
 
 Hardware Design (first draft) supported:
