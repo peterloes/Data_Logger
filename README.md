@@ -1,7 +1,7 @@
 # Next generation of Data Logger for varied range support of Sensors.
 
 A standalone Platform to get environmental impact around Organisms.(Animals)
-Enable long-term environmental observations of different selectable sensors (I2C Interfaces)
+Enable long-term observations of different selectable sensors (I2C Interfaces)
 and two pulse counters for e.g. Lightbarriers pulses.
 
 Authors: Loës P., Kempenaers B.(2021) [![DOI](https://zenodo.org/badge/360805367.svg)](https://zenodo.org/badge/latestdoi/360805367)
