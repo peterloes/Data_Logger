@@ -10,7 +10,10 @@ Main advantages against other data logger:
 
 - Available sensors can be freely combined as requrired.(Firmware adaption)
 - Daily regular synchronisation from date and time with DCF77 radio clock receiver.(Firmware adaption)
-- Long battery life.
+- Long battery life with lithium battery. (max.17V)
+- SD Card includes configuration file.
+- Activation times(x5) for data logging.
+
 
 The following firmware is not reviewed.
 
@@ -57,7 +60,7 @@ https://github.com/peterloes/Data_Logger/blob/main/Getting_Started_Tutorial/3_Hy
 
 
 Board Power:
- - Lithium Ionen Akkupack  17V/300mA(maximum) e.g. 12,8V 7,5Ah 96Wh 
+ - Lithium battery  17V/300mA(maximum) e.g. 12,8V 7,5Ah 96Wh 
  - LS14250 Primary Lithium-Thionyl chloride    3.6V/1200mAh 
 
 Sensors can powered by VBATT_1(3.3V), VBATT_2(3V):
