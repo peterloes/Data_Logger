@@ -12,7 +12,7 @@ Main advantages against other data logger:
 - Daily regular synchronisation from date and time.(Firmware adaption)
 - Long battery life.
 
-Firmware not reviewed.
+The following firmware is not reviewed.
 
 Hardware Design (first draft) supported:
 
